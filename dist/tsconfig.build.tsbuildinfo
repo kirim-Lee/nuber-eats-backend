@@ -3715,9 +3715,14 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../src/restaurant/entities/restaurant.entity.ts": {
+        "version": "08d9c9ab53f4769879f442dffd197ad8cdb65c6d7832fd6fe31a592f3a2d09a4",
+        "signature": "1db6090a93b37f2c0cb4702a35f87ff96ac170ccbc749b5d6604c856452a8014",
+        "affectsGlobalScope": false
+      },
       "../src/restaurant/restaurant.resolver.ts": {
-        "version": "80e6abd42a037d82bb0b09a68e6c02aaa644be7f71c4ccb51a265cb91133d280",
-        "signature": "1cc05a6479026457faed579b598e52a0cd5145afff7bc4cd302a509782f5352f",
+        "version": "12758c28b16b219a92f854bbc2d4ebf42fd7e01d2066b874eeacecd18da8b4ab",
+        "signature": "e7f651e5a576452aad2a6677c88a6c8a71557b6f4fe8ea44b74086d1b6b443a7",
         "affectsGlobalScope": false
       },
       "../src/restaurant/restaurant.module.ts": {
@@ -7191,12 +7196,16 @@
         "../node_modules/@nestjs/core/index.d.ts",
         "../src/app.module.ts"
       ],
+      "../src/restaurant/entities/restaurant.entity.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/restaurant/restaurant.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/restaurant/restaurant.resolver.ts"
       ],
       "../src/restaurant/restaurant.resolver.ts": [
-        "../node_modules/@nestjs/graphql/index.d.ts"
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/restaurant/entities/restaurant.entity.ts"
       ]
     },
     "exportedModulesMap": {
@@ -11139,6 +11148,7 @@
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts",
       "../src/app.module.ts",
       "../src/main.ts",
+      "../src/restaurant/entities/restaurant.entity.ts",
       "../src/restaurant/restaurant.module.ts",
       "../src/restaurant/restaurant.resolver.ts"
     ]
