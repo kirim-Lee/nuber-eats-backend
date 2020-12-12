@@ -10,11 +10,22 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const restaurant_module_1 = require("./restaurant/restaurant.module");
+const typeorm_1 = require("@nestjs/typeorm");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'postgres',
+                host: 'localhost',
+                port: 5432,
+                username: 'username',
+                password: '12345',
+                database: 'nuber-eats',
+                synchronize: true,
+                logging: true,
+            }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
             }),
