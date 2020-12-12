@@ -5745,8 +5745,13 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
+      "../node_modules/joi/lib/index.d.ts": {
+        "version": "4068044a45ccae8c314485337305559035d1317a82809aa1c11a6eb8ece26273",
+        "signature": "4068044a45ccae8c314485337305559035d1317a82809aa1c11a6eb8ece26273",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "b7d903c0ade855ef118e4a684760894c9477ba0ff3e1f8e7438109bfc7d1a446",
+        "version": "477d28b76e018f6bc24370b80cf7fc15e03c00dfbdc52fe1824c3a76e1ac201c",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -5884,6 +5889,11 @@
         "version": "97604d73d70e509c148773813560470d3b1981be8712edcc773d95bca5f2894d",
         "signature": "97604d73d70e509c148773813560470d3b1981be8712edcc773d95bca5f2894d",
         "affectsGlobalScope": true
+      },
+      "../node_modules/@types/joi/index.d.ts": {
+        "version": "629e989c3819bdf34ff5a3909236d2c00c276e5d84fef684114777ab7795807b",
+        "signature": "629e989c3819bdf34ff5a3909236d2c00c276e5d84fef684114777ab7795807b",
+        "affectsGlobalScope": false
       },
       "../node_modules/@types/json5/index.d.ts": {
         "version": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
@@ -7637,6 +7647,9 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/joi/index.d.ts": [
+        "../node_modules/joi/lib/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
         "../node_modules/@types/koa/index.d.ts"
@@ -10850,6 +10863,7 @@
         "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/joi/lib/index.d.ts",
         "../src/restaurant/restaurant.module.ts"
       ],
       "../src/main.ts": [
@@ -12443,6 +12457,9 @@
       "../node_modules/@types/jest/index.d.ts": [
         "../node_modules/jest-diff/build/index.d.ts",
         "../node_modules/pretty-format/build/index.d.ts"
+      ],
+      "../node_modules/@types/joi/index.d.ts": [
+        "../node_modules/joi/lib/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
         "../node_modules/@types/koa/index.d.ts"
@@ -16051,6 +16068,7 @@
       "../node_modules/@types/istanbul-lib-report/index.d.ts",
       "../node_modules/@types/istanbul-reports/index.d.ts",
       "../node_modules/@types/jest/index.d.ts",
+      "../node_modules/@types/joi/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/keygrip/index.d.ts",
@@ -16492,6 +16510,7 @@
       "../node_modules/jest-diff/build/index.d.ts",
       "../node_modules/jest-diff/build/printdiffs.d.ts",
       "../node_modules/jest-diff/build/types.d.ts",
+      "../node_modules/joi/lib/index.d.ts",
       "../node_modules/pretty-format/build/index.d.ts",
       "../node_modules/pretty-format/build/types.d.ts",
       "../node_modules/reflect-metadata/index.d.ts",
