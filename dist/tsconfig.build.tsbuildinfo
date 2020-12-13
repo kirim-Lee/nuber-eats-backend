@@ -5666,7 +5666,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/restaurant.entity.ts": {
-        "version": "f531a84565112dbcc4f7132e3e33aff1ab2c51666522cb99ec4d4375d3606291",
+        "version": "02e00a9aceec20d0335a5bd4064098206ba71167829ffdcebce0783d1dda95d3",
         "signature": "2eb4c4b43848bd60168769ba9256909782f2ded58335461a980a4c8cccd50b40",
         "affectsGlobalScope": false
       },
