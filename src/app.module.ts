@@ -6,12 +6,14 @@ import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { Restaurant } from './restaurant/entities/restaurant.entity';
 
+const isDev = process.env.NODE_ENV !== 'prod';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
-      ignoreEnvFile: process.env.NODE_ENV === 'prod',
+      ignoreEnvFile: !isDev,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('dev', 'prod', 'test').default('dev'),
         PORT: Joi.number().default(5432),
@@ -29,8 +31,8 @@ import { Restaurant } from './restaurant/entities/restaurant.entity';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      synchronize: process.env.NODE_ENV !== 'prod',
-      logging: true,
+      synchronize: isDev,
+      logging: isDev,
       entities: [Restaurant],
     }),
     GraphQLModule.forRoot({
