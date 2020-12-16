@@ -9,11 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
-const restaurant_module_1 = require("./restaurant/restaurant.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const config_1 = require("@nestjs/config");
 const Joi = require("joi");
-const restaurant_entity_1 = require("./restaurant/entities/restaurant.entity");
+const users_module_1 = require("./users/users.module");
+const common_module_1 = require("./common/common.module");
+const user_entity_1 = require("./users/entities/user.entity");
 const isDev = process.env.NODE_ENV !== 'prod';
 let AppModule = class AppModule {
 };
@@ -43,12 +44,13 @@ AppModule = __decorate([
                 database: process.env.DATABASE_NAME,
                 synchronize: isDev,
                 logging: isDev,
-                entities: [restaurant_entity_1.Restaurant],
+                entities: [user_entity_1.User],
             }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
             }),
-            restaurant_module_1.RestaurantModule,
+            users_module_1.UsersModule,
+            common_module_1.CommonModule,
         ],
         controllers: [],
         providers: [],
