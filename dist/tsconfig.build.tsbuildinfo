@@ -5756,8 +5756,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "503b927aa1aaf1c1a971c0df2447af93616e7f5e71777e202504db0d5618466b",
-        "signature": "e88e6f9951e1c441e7edc6579bb0754c2b74107233976aa16dfa0f02e5ae1e0a",
+        "version": "fd352975d9c48d80e60b81561e7b54284eb954a7febed86611036ec06f96313a",
+        "signature": "381b54f06e7d9ba5b326a3e608129c2b80cdb191dd29c5e9466ce74a269ecc37",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {

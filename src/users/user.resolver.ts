@@ -16,7 +16,9 @@ export class UserResolver {
   }
 
   @Mutation(returns => CreateAccountOutput)
-  createAccount(@Args() createAccountInput: CreateAccountInput) {
-    return true;
+  createAccount(
+    @Args() createAccountInput: CreateAccountInput,
+  ): Promise<CreateAccountOutput> {
+    return this.userService.createAccount(createAccountInput);
   }
 }
