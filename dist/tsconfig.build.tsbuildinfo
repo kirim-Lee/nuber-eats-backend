@@ -5740,9 +5740,14 @@
         "signature": "7f2a9848c3f731e7e0d0cc919f22dd70375b7f2fe77581d47f8ac7e2a8e0d8ad",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/bcrypt/index.d.ts": {
+        "version": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
+        "signature": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
+        "affectsGlobalScope": false
+      },
       "../src/users/entities/user.entity.ts": {
-        "version": "bda43eb5f3df9dfc090c018d9dac29326a3cd939c4c80fa58751afaa87bc95da",
-        "signature": "d036fb1d562160194e6c5291029a4d331ad130a961c416cac4d40209c391b333",
+        "version": "5d84e21512e7137b5a9ffc9992e126877541d68bcfa0399138014790dbe6cdaf",
+        "signature": "c64614a3cc64c6eb307067eb344a1a4fc7bab3c2dea3647e7c024c1953fa5789",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/create-account.dto.ts": {
@@ -10965,7 +10970,9 @@
         "../src/users/entities/user.entity.ts"
       ],
       "../src/users/entities/user.entity.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
+        "../node_modules/@types/bcrypt/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/common/entities/core.entity.ts"
       ],
@@ -16181,6 +16188,7 @@
       "../node_modules/@types/babel__generator/index.d.ts",
       "../node_modules/@types/babel__template/index.d.ts",
       "../node_modules/@types/babel__traverse/index.d.ts",
+      "../node_modules/@types/bcrypt/index.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/content-disposition/index.d.ts",
