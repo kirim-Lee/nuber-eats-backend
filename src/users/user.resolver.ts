@@ -1,3 +1,4 @@
+import { Controller, Get, Req, Request } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import {
   CreateAccountInput,
@@ -8,6 +9,7 @@ import { User } from './entities/user.entity';
 import { UserService } from './user.service';
 
 @Resolver(of => User)
+@Controller()
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
@@ -26,5 +28,11 @@ export class UserResolver {
   @Mutation(returns => LoginOutput)
   login(@Args() loginInput: LoginInput): Promise<LoginOutput> {
     return this.userService.login(loginInput);
+  }
+
+  @Query(returns => String)
+  @Get()
+  me(@Req() req: Request) {
+    console.log(req);
   }
 }

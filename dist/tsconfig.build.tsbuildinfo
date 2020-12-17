@@ -5781,8 +5781,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "96539722a2a40c62baeffabf554121d415803c62ca7b544c7dfc1f13fda39353",
-        "signature": "508d8ce9469079c1c3c78ea8bea66579eabaff0f32e80db1fe5eb3a695054e6b",
+        "version": "efbccfff1ee52b782964c7cd3cd7bd27795daee772b94be9b8e792a33ec9c488",
+        "signature": "350431997e10925ff888fdcdba24773c358accd0f176c2ff7dba56e294a4b7ee",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -5800,9 +5800,14 @@
         "signature": "d157d193c7316bb6837a8e379f3d2c8c46553b613cebc59767c209782af48262",
         "affectsGlobalScope": false
       },
+      "../src/jwt/jwt.middleware.ts": {
+        "version": "f0e7172533831cf9575759bc21b87a8da9ae530a20386c3b3bfb53b0f3e55e69",
+        "signature": "23af4c66d397347189dd6611721563ce6ca449e4f974135f2333ac2e15a46d85",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "1b9b042f82d2a9fac8b94b4e2ed1bd323bf7755eeb9eb5252750991d4856c1cc",
-        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
+        "version": "f84926e246b03932db645a0ef69345ee106b5aea1d6c7c57db15278e196a3d66",
+        "signature": "9e55d69c2879e4c1f6039d177c0daf79a72435ac51ec7d4f46fc72e8b0c503d6",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
@@ -10948,6 +10953,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/joi/lib/index.d.ts",
         "../src/common/common.module.ts",
+        "../src/jwt/jwt.middleware.ts",
         "../src/jwt/jwt.module.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/users.module.ts"
@@ -10960,6 +10966,9 @@
       ],
       "../src/common/entities/dtos/output.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
+      "../src/jwt/jwt.middleware.ts": [
+        "../node_modules/@types/express/index.d.ts"
       ],
       "../src/jwt/jwt.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11030,6 +11039,7 @@
         "../src/common/entities/core.entity.ts"
       ],
       "../src/users/user.resolver.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -15838,6 +15848,12 @@
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts": [
         "../node_modules/zen-observable-ts/lib/types.d.ts"
       ],
+      "../src/app.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../src/jwt/jwt.middleware.ts": [
+        "../node_modules/@types/express/index.d.ts"
+      ],
       "../src/jwt/jwt.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/jwt/jwt.interfaces.ts"
@@ -17106,6 +17122,7 @@
       "../src/common/entities/core.entity.ts",
       "../src/common/entities/dtos/output.dto.ts",
       "../src/jwt/jwt.interfaces.ts",
+      "../src/jwt/jwt.middleware.ts",
       "../src/jwt/jwt.module.ts",
       "../src/jwt/jwt.service.ts",
       "../src/main.ts",
