@@ -33,6 +33,7 @@ AppModule = __decorate([
                     DATABASE_USER: Joi.string().required(),
                     DATABASE_PASSWORD: Joi.string().required(),
                     DATABASE_NAME: Joi.string().required(),
+                    SECRET_KEY: Joi.string().required(),
                 }),
             }),
             typeorm_1.TypeOrmModule.forRoot({
