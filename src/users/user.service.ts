@@ -7,15 +7,12 @@ import {
 } from './dtos/create-account.dto';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
-import * as jwt from 'jsonwebtoken';
-import { ConfigService } from '@nestjs/config';
 import { JwtService } from 'src/jwt/jwt.service';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User) private readonly user: Repository<User>,
-    private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -75,5 +72,9 @@ export class UserService {
         error,
       };
     }
+  }
+
+  async findById(id: number): Promise<User> {
+    return this.user.findOne({ id });
   }
 }
