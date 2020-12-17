@@ -5801,17 +5801,17 @@
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.middleware.ts": {
-        "version": "f0e7172533831cf9575759bc21b87a8da9ae530a20386c3b3bfb53b0f3e55e69",
-        "signature": "23af4c66d397347189dd6611721563ce6ca449e4f974135f2333ac2e15a46d85",
+        "version": "9952581237f2c4cb6d0cd86aa17023cd9a983f8347b12e511ebe6edc50eed942",
+        "signature": "7d82e5bfc2e3f3f21345a200c1765d752f3d57b319117364e5005c91fc7fc661",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "f84926e246b03932db645a0ef69345ee106b5aea1d6c7c57db15278e196a3d66",
-        "signature": "9e55d69c2879e4c1f6039d177c0daf79a72435ac51ec7d4f46fc72e8b0c503d6",
+        "version": "ece6cca33b699758de2885beff5f2322ef7e52239cffc5490f2136fb3b70e08c",
+        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "c8a6b066a247042ac853ab45f23dc3c704d344d65f93b1562c5e53ee3fd7369c",
+        "version": "9c9a6b0ee16da1bb226ec7b9336fec4ad2ab90c387bb1e11dfef056feb42be4c",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -10968,6 +10968,7 @@
         "../node_modules/@nestjs/graphql/index.d.ts"
       ],
       "../src/jwt/jwt.middleware.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts"
       ],
       "../src/jwt/jwt.module.ts": [
@@ -10983,7 +10984,8 @@
       "../src/main.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/core/index.d.ts",
-        "../src/app.module.ts"
+        "../src/app.module.ts",
+        "../src/jwt/jwt.middleware.ts"
       ],
       "../src/restaurant/dto/create-restaurant.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -15848,10 +15850,8 @@
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts": [
         "../node_modules/zen-observable-ts/lib/types.d.ts"
       ],
-      "../src/app.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
-      ],
       "../src/jwt/jwt.middleware.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts"
       ],
       "../src/jwt/jwt.module.ts": [

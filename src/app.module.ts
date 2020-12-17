@@ -1,9 +1,4 @@
-import {
-  MiddlewareConsumer,
-  Module,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
@@ -12,7 +7,7 @@ import { UsersModule } from './users/users.module';
 import { CommonModule } from './common/common.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
-import { jwtMiddelware } from './jwt/jwt.middleware';
+import { JwtMiddelware } from './jwt/jwt.middleware';
 
 const isDev = process.env.NODE_ENV !== 'prod';
 
@@ -54,10 +49,4 @@ const isDev = process.env.NODE_ENV !== 'prod';
   controllers: [],
   providers: [],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(jwtMiddelware)
-      .forRoutes({ path: '*', method: RequestMethod.POST });
-  }
-}
+export class AppModule {}
