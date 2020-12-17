@@ -5,7 +5,9 @@ import {
   CreateAccountInput,
   CreateAccountOutput,
 } from './dtos/create-account.dto';
+import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -37,7 +39,34 @@ export class UserService {
     } catch (error) {
       return {
         ok: false,
-        error: error,
+        error,
+      };
+    }
+  }
+
+  async login({ email, password }: LoginInput): Promise<LoginOutput> {
+    try {
+      // finde the user with the email
+      const user = await this.user.findOne({ email });
+      if (!user) {
+        throw Error('user not found');
+      }
+
+      // check password
+      const passwordCorrect = await user.checkPassword(password);
+      if (!passwordCorrect) {
+        throw Error('password not correct');
+      }
+
+      // JWT
+      return {
+        ok: true,
+        token: '',
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error,
       };
     }
   }
