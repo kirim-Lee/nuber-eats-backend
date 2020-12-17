@@ -5766,17 +5766,17 @@
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.interfaces.ts": {
-        "version": "c106503dd8f97399c07aeeba572045eee76a17bce119225b72ec685d8631c6c8",
-        "signature": "9ce6278ba681b1481381bdb9860d943ab11ad8bbae6bec392cc010442b24076c",
+        "version": "141b35eda6eb1a26d56a37e1bab7e662674de653fe66459495dcfb69eceb2406",
+        "signature": "30ed4a116f2a8b7b39b399697665619f59e87f03b7070130c12a5dcb4c90dfff",
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.service.ts": {
-        "version": "d135dba419027694c1deafa42c7ef7eef02d45d14ec6f15a22fefa54d8790948",
-        "signature": "389e5321ea9166481c8d856d98c697a390342b2ab5c8cf5892ec9d0900cccba8",
+        "version": "38fc146c51aa7ef840088b7eb7a53cf5ae0a1991617945949df8f2022675f1ba",
+        "signature": "bf31eca91cbc0bbf1051cf4fb6376fd1a031107604d74d004d3c2386575780e6",
         "affectsGlobalScope": false
       },
       "../src/users/user.service.ts": {
-        "version": "623ae920be6bb57a0643f8bf316ecfe7b27f944cb8c71fe944729c0e669d4a6b",
+        "version": "ea7d290ff08ff029adef2c91053a01bf43cd8fb6924bfa274a7a69675662fdc1",
         "signature": "63895d70072cf19407e8dcff2d08c11017b38ecd481c969b6819bd06a1240983",
         "affectsGlobalScope": false
       },
@@ -10968,6 +10968,7 @@
       ],
       "../src/jwt/jwt.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/jsonwebtoken/index.d.ts",
         "../src/jwt/jwt.interfaces.ts"
       ],
       "../src/main.ts": [
