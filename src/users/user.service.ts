@@ -9,12 +9,14 @@ import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
 import * as jwt from 'jsonwebtoken';
 import { ConfigService } from '@nestjs/config';
+import { JwtService } from 'src/jwt/jwt.service';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User) private readonly user: Repository<User>,
     private readonly configService: ConfigService,
+    private readonly jwtService: JwtService,
   ) {}
 
   async createAccount({
@@ -60,6 +62,7 @@ export class UserService {
         throw Error('password not correct');
       }
 
+      this.jwtService.hello();
       const token = jwt.sign(
         { id: user.id },
         this.configService.get<string>('SECRET_KEY'),

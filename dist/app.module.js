@@ -15,6 +15,7 @@ const Joi = require("joi");
 const users_module_1 = require("./users/users.module");
 const common_module_1 = require("./common/common.module");
 const user_entity_1 = require("./users/entities/user.entity");
+const jwt_module_1 = require("./jwt/jwt.module");
 const isDev = process.env.NODE_ENV !== 'prod';
 let AppModule = class AppModule {
 };
@@ -33,7 +34,7 @@ AppModule = __decorate([
                     DATABASE_USER: Joi.string().required(),
                     DATABASE_PASSWORD: Joi.string().required(),
                     DATABASE_NAME: Joi.string().required(),
-                    SECRET_KEY: Joi.string().required(),
+                    PRIVATE_KEY: Joi.string().required(),
                 }),
             }),
             typeorm_1.TypeOrmModule.forRoot({
@@ -52,6 +53,7 @@ AppModule = __decorate([
             }),
             users_module_1.UsersModule,
             common_module_1.CommonModule,
+            jwt_module_1.JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
         ],
         controllers: [],
         providers: [],

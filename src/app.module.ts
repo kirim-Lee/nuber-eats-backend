@@ -3,10 +3,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
-import { Restaurant } from './restaurant/entities/restaurant.entity';
 import { UsersModule } from './users/users.module';
 import { CommonModule } from './common/common.module';
 import { User } from './users/entities/user.entity';
+import { JwtModule } from './jwt/jwt.module';
 
 const isDev = process.env.NODE_ENV !== 'prod';
 
@@ -24,7 +24,7 @@ const isDev = process.env.NODE_ENV !== 'prod';
         DATABASE_USER: Joi.string().required(),
         DATABASE_PASSWORD: Joi.string().required(),
         DATABASE_NAME: Joi.string().required(),
-        SECRET_KEY: Joi.string().required(),
+        PRIVATE_KEY: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRoot({
@@ -43,6 +43,7 @@ const isDev = process.env.NODE_ENV !== 'prod';
     }),
     UsersModule,
     CommonModule,
+    JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
   ],
   controllers: [],
   providers: [],
