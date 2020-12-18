@@ -17,6 +17,7 @@ const user_entity_1 = require("./users/entities/user.entity");
 const jwt_module_1 = require("./jwt/jwt.module");
 const jwt_middleware_1 = require("./jwt/jwt.middleware");
 const auth_module_1 = require("./auth/auth.module");
+const verification_entity_1 = require("./users/entities/verification.entity");
 const isDev = process.env.NODE_ENV !== 'prod';
 let AppModule = class AppModule {
     configure(consumer) {
@@ -52,7 +53,7 @@ AppModule = __decorate([
                 database: process.env.DATABASE_NAME,
                 synchronize: isDev,
                 logging: isDev,
-                entities: [user_entity_1.User],
+                entities: [user_entity_1.User, verification_entity_1.Verification],
             }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,

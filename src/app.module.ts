@@ -14,6 +14,7 @@ import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
 import { JwtMiddelware } from './jwt/jwt.middleware';
 import { AuthModule } from './auth/auth.module';
+import { Verification } from './users/entities/verification.entity';
 
 const isDev = process.env.NODE_ENV !== 'prod';
 
@@ -43,7 +44,7 @@ const isDev = process.env.NODE_ENV !== 'prod';
       database: process.env.DATABASE_NAME,
       synchronize: isDev,
       logging: isDev,
-      entities: [User],
+      entities: [User, Verification],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
