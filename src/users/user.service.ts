@@ -9,11 +9,14 @@ import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
 import { JwtService } from 'src/jwt/jwt.service';
 import { EditProfileInput, EditProfileOutput } from './dtos/edit-profile.dto';
+import { Verification } from './entities/verification.entity';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User) private readonly user: Repository<User>,
+    @InjectRepository(Verification)
+    private readonly verification: Repository<Verification>,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -33,6 +36,9 @@ export class UserService {
       // create user & hash password
       const user = this.user.create({ email, password, role });
       await this.user.save(user);
+
+      const verification = this.verification.create({ user });
+      await this.verification.save(verification);
 
       // return result
       return {
@@ -91,6 +97,9 @@ export class UserService {
 
       if (email) {
         user.email = email;
+        user.verified = false;
+        await this.verification.delete({ user });
+        await this.verification.save(this.verification.create({ user }));
       }
 
       if (password) {
