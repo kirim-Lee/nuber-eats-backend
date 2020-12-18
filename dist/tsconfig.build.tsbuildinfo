@@ -5750,6 +5750,11 @@
         "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
         "affectsGlobalScope": false
       },
+      "../src/auth/auth.user.decorator.ts": {
+        "version": "a4645132beba788e9d895d5e83a8b8258f13efc26afa302c669973e18489a485",
+        "signature": "cd1e457df3b82a86ca479fcda6e01c8ff3874ebdbdc812db7f6734d8561f4788",
+        "affectsGlobalScope": false
+      },
       "../src/common/entities/dtos/output.dto.ts": {
         "version": "e54120f560828a9a56d67049e002f64d3485db2532772f4306b276f5c3ec1b3a",
         "signature": "5a8c143ad0266115369e2c16e4cf89f2972ccb6ad8779760ab22f6a7ae8dd5bf",
@@ -5786,8 +5791,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "289a9a62b3a596c90a76e9f6a4bb937bf0cf1291e9c8ea37752ce79b4f43efa2",
-        "signature": "3abc3574632fc58fcfba74c7ef22144d56dac8e7e5234a7984ff2e27e84026fc",
+        "version": "aa64f1d6ed7740fc043e22bcec63979cb6e4dc03f7ab893caff9e29d7e56114c",
+        "signature": "3213c77c76773a01502f891cced3d634270f65a35f7868baf50709653092a209",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -5806,7 +5811,7 @@
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.middleware.ts": {
-        "version": "185f98c5e119505522747e3a68f05339b6d4dd4b2ef90a030a9a957017f75db0",
+        "version": "14520283a89923c35e3bafa79b2de769b7e3805d453240012ea94fe4e236c3d1",
         "signature": "4731db15689524c784c179e2a6155379998f36b8a4340bc2938a533245095955",
         "affectsGlobalScope": false
       },
@@ -10976,6 +10981,10 @@
       "../src/auth/auth.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/auth/auth.user.decorator.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
       "../src/common/common.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
@@ -11063,6 +11072,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/auth/auth.guard.ts",
+        "../src/auth/auth.user.decorator.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/entities/user.entity.ts",
@@ -15923,6 +15933,7 @@
       "../src/users/user.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/entities/user.entity.ts",
         "../src/users/user.service.ts"
       ],
       "../src/users/user.service.ts": [
@@ -17145,6 +17156,7 @@
       "../src/app.module.ts",
       "../src/auth/auth.guard.ts",
       "../src/auth/auth.module.ts",
+      "../src/auth/auth.user.decorator.ts",
       "../src/common/common.module.ts",
       "../src/common/entities/core.entity.ts",
       "../src/common/entities/dtos/output.dto.ts",
