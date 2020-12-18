@@ -23,7 +23,7 @@ let AppModule = class AppModule {
     configure(consumer) {
         consumer
             .apply(jwt_middleware_1.JwtMiddelware)
-            .forRoutes({ path: '/graphql', method: common_1.RequestMethod.POST });
+            .forRoutes({ path: '/graphql', method: common_1.RequestMethod.ALL });
     }
 };
 AppModule = __decorate([

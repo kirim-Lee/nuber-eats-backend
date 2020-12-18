@@ -10,6 +10,7 @@ import { User } from './entities/user.entity';
 import { JwtService } from 'src/jwt/jwt.service';
 import { EditProfileInput, EditProfileOutput } from './dtos/edit-profile.dto';
 import { Verification } from './entities/verification.entity';
+import { VerifyEmailOutput } from './dtos/verify-email.dto';
 
 @Injectable()
 export class UserService {
@@ -55,7 +56,10 @@ export class UserService {
   async login({ email, password }: LoginInput): Promise<LoginOutput> {
     try {
       // finde the user with the email
-      const user = await this.user.findOne({ email });
+      const user = await this.user.findOne(
+        { email },
+        { select: ['id', 'password'] },
+      );
       if (!user) {
         throw Error('user not found');
       }
@@ -114,6 +118,31 @@ export class UserService {
     } catch (e) {
       console.log(e);
       return { ok: false, error: e.message };
+    }
+  }
+
+  async verifyEmail(code: string): Promise<VerifyEmailOutput> {
+    try {
+      const verification = await this.verification.findOne(
+        { code },
+        { loadRelationIds: true },
+      );
+
+      if (!verification) {
+        throw Error("verification code isn't exist");
+      }
+
+      this.user.update(verification.user, { verified: true });
+
+      return {
+        ok: true,
+      };
+    } catch (e) {
+      console.log(e);
+      return {
+        ok: false,
+        error: e.message,
+      };
     }
   }
 }
