@@ -5116,7 +5116,7 @@
         "affectsGlobalScope": false
       },
       "../src/common/entities/core.entity.ts": {
-        "version": "6c1cf6b6425e2b2125a9a75490aff2cb2fbede50bdbeba1074def5c40f4eb77a",
+        "version": "f17641f5c5f6cd7047d91db0906cca77667aebeeb0d00d17866c781d08903af2",
         "signature": "7f2a9848c3f731e7e0d0cc919f22dd70375b7f2fe77581d47f8ac7e2a8e0d8ad",
         "affectsGlobalScope": false
       },
@@ -5770,6 +5770,11 @@
         "signature": "75d89ce358e5e86461e0fdeb3a33247309858795d7c6503be6ee0a5172851984",
         "affectsGlobalScope": false
       },
+      "../src/users/dtos/user-profile.dto.ts": {
+        "version": "1e18959f1055dca54077122ea96f272944d46b53e82b6505b361e4dd4b1b52d9",
+        "signature": "3c80c1a41a35ad9095813020d1724006428c082c28086843bf51b408c13e8952",
+        "affectsGlobalScope": false
+      },
       "../src/jwt/jwt.interfaces.ts": {
         "version": "141b35eda6eb1a26d56a37e1bab7e662674de653fe66459495dcfb69eceb2406",
         "signature": "30ed4a116f2a8b7b39b399697665619f59e87f03b7070130c12a5dcb4c90dfff",
@@ -5786,13 +5791,13 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.service.ts": {
-        "version": "412cbf05fc21c7fbd69d7df1240ceaa0730d3c3edf8d3ded4738b696cfed451b",
+        "version": "6ca8425e19575292e28c4562bd3602063708c5d7372fd20436b23ef79bbc1097",
         "signature": "d284284d11fa7eb2c68df7ed56a864266d5f768a9cdf2e8354009ed4360bb295",
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "aa64f1d6ed7740fc043e22bcec63979cb6e4dc03f7ab893caff9e29d7e56114c",
-        "signature": "3213c77c76773a01502f891cced3d634270f65a35f7868baf50709653092a209",
+        "version": "f6a43d5a62d1e209a21efb977078a5b2bc1eb62ab9a3beaf3da5a377ec6017fe",
+        "signature": "33ca64ffeb1cbe400580e10e5128cfa19f7f3481d8303960583e06426676b2b6",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -10989,6 +10994,7 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/common/entities/core.entity.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/typeorm/index.d.ts"
       ],
       "../src/common/entities/dtos/output.dto.ts": [
@@ -11060,6 +11066,11 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/dtos/user-profile.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/users/entities/user.entity.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -11075,6 +11086,7 @@
         "../src/auth/auth.user.decorator.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/user.service.ts"
       ],
@@ -15927,12 +15939,18 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/dtos/user-profile.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/users/entities/user.entity.ts": [
         "../src/common/entities/core.entity.ts"
       ],
       "../src/users/user.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
+        "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/user.service.ts"
       ],
@@ -17173,6 +17191,7 @@
       "../src/restaurant/restaurant.service.ts",
       "../src/users/dtos/create-account.dto.ts",
       "../src/users/dtos/login.dto.ts",
+      "../src/users/dtos/user-profile.dto.ts",
       "../src/users/entities/user.entity.ts",
       "../src/users/user.resolver.ts",
       "../src/users/user.service.ts",
