@@ -38,25 +38,10 @@ export class UserResolver {
 
   @Query(returns => UserProfileOutput)
   @UseGuards(AuthGuard)
-  async userProfile(
+  userProfile(
     @Args() userProfileInput: UserProfileInput,
   ): Promise<UserProfileOutput> {
-    try {
-      const user = await this.userService.findById(userProfileInput.id);
-      if (!user) {
-        throw Error('user not found');
-      }
-      return {
-        ok: true,
-        profile: user,
-      };
-    } catch (e) {
-      console.log(e);
-      return {
-        ok: false,
-        error: e.message,
-      };
-    }
+    return this.userService.userProfile(userProfileInput.id);
   }
 
   @Mutation(returns => EditProfileOutput)

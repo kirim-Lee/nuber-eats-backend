@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import {
   CreateAccountInput,
   CreateAccountOutput,
@@ -9,6 +9,7 @@ import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { User } from './entities/user.entity';
 import { JwtService } from 'src/jwt/jwt.service';
 import { EditProfileInput, EditProfileOutput } from './dtos/edit-profile.dto';
+import { UserProfileOutput } from './dtos/user-profile.dto';
 import { Verification } from './entities/verification.entity';
 import { VerifyEmailOutput } from './dtos/verify-email.dto';
 
@@ -87,6 +88,27 @@ export class UserService {
 
   async findById(id: number): Promise<User> {
     return await this.user.findOne({ id });
+  }
+
+  async userProfile(id: number): Promise<UserProfileOutput> {
+    try {
+      const user = await this.findById(id);
+
+      if (!user) {
+        throw Error('user not found');
+      }
+
+      return {
+        ok: true,
+        profile: user,
+      };
+    } catch (e) {
+      console.log(e);
+      return {
+        ok: false,
+        error: e.message,
+      };
+    }
   }
 
   async editProfile(
