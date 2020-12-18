@@ -5741,7 +5741,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/entities/user.entity.ts": {
-        "version": "d5c1da60d605585a80c242bda26eb14450b945ae86dece4e935b769c317068d2",
+        "version": "ce29eed47227d6e2d9161bec41ec4f39f8f19fe056a2850b269292f5f76116ce",
         "signature": "7789fa30b736d28cf572e70d247609a845c1d57aa5ae2540169f0c4a2f2c7b23",
         "affectsGlobalScope": false
       },
@@ -5763,6 +5763,11 @@
       "../src/users/dtos/create-account.dto.ts": {
         "version": "30cbc7e17f989b3cc10f2b19bb7483af6f91494b90ee8bd5095042baef8baab0",
         "signature": "5470206e8e8f28cd86c524c0ffe3f5ea0465a6a2cef7296c2c6bec57b6cd4caa",
+        "affectsGlobalScope": false
+      },
+      "../src/users/dtos/edit-profile.dto.ts": {
+        "version": "807755ef21aeee7f475cbb2eb5a5a6e9d50ee95fa7c233e85e61795f4429a43b",
+        "signature": "49a1ef60d29a74efc09ad531f8507efd543593bf1e2338ea417735cefe74b4f7",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/login.dto.ts": {
@@ -5791,13 +5796,13 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.service.ts": {
-        "version": "6ca8425e19575292e28c4562bd3602063708c5d7372fd20436b23ef79bbc1097",
-        "signature": "d284284d11fa7eb2c68df7ed56a864266d5f768a9cdf2e8354009ed4360bb295",
+        "version": "c48fb96c0e2710666be3ccd40909f404c88006e4c9250a8b18b47b7b149b4d4c",
+        "signature": "56af11307d10c3632371d474f0e2622ddc1756344a1ff9cf38995b423702de25",
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "f6a43d5a62d1e209a21efb977078a5b2bc1eb62ab9a3beaf3da5a377ec6017fe",
-        "signature": "33ca64ffeb1cbe400580e10e5128cfa19f7f3481d8303960583e06426676b2b6",
+        "version": "c1bb8fa962ebd423675159c0b65d554d2b7f4cc330cd72482475830b846fd4ba",
+        "signature": "80c8d30d9c297acd0102d822241dc4f3357ec72e1903fb85a5ef71289e4fd319",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -11061,6 +11066,11 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/dtos/edit-profile.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/users/dtos/login.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
@@ -11085,6 +11095,7 @@
         "../src/auth/auth.guard.ts",
         "../src/auth/auth.user.decorator.ts",
         "../src/users/dtos/create-account.dto.ts",
+        "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
@@ -11096,6 +11107,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/jwt/jwt.service.ts",
         "../src/users/dtos/create-account.dto.ts",
+        "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
@@ -15934,6 +15946,11 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/dtos/edit-profile.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
       "../src/users/dtos/login.dto.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
@@ -15949,6 +15966,7 @@
       ],
       "../src/users/user.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
+        "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/dtos/user-profile.dto.ts",
         "../src/users/entities/user.entity.ts",
@@ -15958,6 +15976,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/jwt/jwt.service.ts",
         "../src/users/dtos/create-account.dto.ts",
+        "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/entities/user.entity.ts"
       ]
@@ -17190,6 +17209,7 @@
       "../src/restaurant/restaurant.resolver.ts",
       "../src/restaurant/restaurant.service.ts",
       "../src/users/dtos/create-account.dto.ts",
+      "../src/users/dtos/edit-profile.dto.ts",
       "../src/users/dtos/login.dto.ts",
       "../src/users/dtos/user-profile.dto.ts",
       "../src/users/entities/user.entity.ts",
