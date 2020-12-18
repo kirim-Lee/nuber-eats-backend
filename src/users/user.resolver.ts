@@ -1,5 +1,6 @@
-import { Controller, Get, Req, Request } from '@nestjs/common';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Controller, UseGuards } from '@nestjs/common';
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { AuthGuard } from 'src/auth/auth.guard';
 import {
   CreateAccountInput,
   CreateAccountOutput,
@@ -30,9 +31,9 @@ export class UserResolver {
     return this.userService.login(loginInput);
   }
 
-  @Query(returns => String)
-  @Get()
-  me(@Req() req: Request) {
-    console.log(req);
+  @Query(returns => User)
+  @UseGuards(AuthGuard)
+  me(@Context() context) {
+    return context['user'];
   }
 }

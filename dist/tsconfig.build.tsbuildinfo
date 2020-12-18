@@ -5745,6 +5745,11 @@
         "signature": "7789fa30b736d28cf572e70d247609a845c1d57aa5ae2540169f0c4a2f2c7b23",
         "affectsGlobalScope": false
       },
+      "../src/auth/auth.guard.ts": {
+        "version": "47a713dccb5c380a90f1133df14c12e7379e719a4f335d10aa88a7c608d230f0",
+        "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
+        "affectsGlobalScope": false
+      },
       "../src/common/entities/dtos/output.dto.ts": {
         "version": "e54120f560828a9a56d67049e002f64d3485db2532772f4306b276f5c3ec1b3a",
         "signature": "5a8c143ad0266115369e2c16e4cf89f2972ccb6ad8779760ab22f6a7ae8dd5bf",
@@ -5781,8 +5786,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "efbccfff1ee52b782964c7cd3cd7bd27795daee772b94be9b8e792a33ec9c488",
-        "signature": "350431997e10925ff888fdcdba24773c358accd0f176c2ff7dba56e294a4b7ee",
+        "version": "289a9a62b3a596c90a76e9f6a4bb937bf0cf1291e9c8ea37752ce79b4f43efa2",
+        "signature": "3abc3574632fc58fcfba74c7ef22144d56dac8e7e5234a7984ff2e27e84026fc",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -5805,8 +5810,13 @@
         "signature": "4731db15689524c784c179e2a6155379998f36b8a4340bc2938a533245095955",
         "affectsGlobalScope": false
       },
+      "../src/auth/auth.module.ts": {
+        "version": "da2b8b8660542a34ee4e2d234d69b83fa7e8143d62392ba8bffa94561e7d7b98",
+        "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "f65ea866d9121ae0284479281bc22d3771b95f26317dd21d7e81a11dc2ac476c",
+        "version": "9043de1b60ccdf2bae34479a57cd5b8cf0712ccaf23e2f202e8eb390fae22953",
         "signature": "9e55d69c2879e4c1f6039d177c0daf79a72435ac51ec7d4f46fc72e8b0c503d6",
         "affectsGlobalScope": false
       },
@@ -10952,11 +10962,19 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/joi/lib/index.d.ts",
+        "../src/auth/auth.module.ts",
         "../src/common/common.module.ts",
         "../src/jwt/jwt.middleware.ts",
         "../src/jwt/jwt.module.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/users.module.ts"
+      ],
+      "../src/auth/auth.guard.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/graphql/index.d.ts"
+      ],
+      "../src/auth/auth.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/common/common.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -11044,6 +11062,7 @@
       "../src/users/user.resolver.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/auth/auth.guard.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/login.dto.ts",
         "../src/users/entities/user.entity.ts",
@@ -15852,6 +15871,9 @@
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/auth/auth.guard.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
       "../src/jwt/jwt.middleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
@@ -17121,6 +17143,8 @@
       "../node_modules/zen-observable-ts/lib/types.d.ts",
       "../node_modules/zen-observable-ts/lib/zenobservable.d.ts",
       "../src/app.module.ts",
+      "../src/auth/auth.guard.ts",
+      "../src/auth/auth.module.ts",
       "../src/common/common.module.ts",
       "../src/common/entities/core.entity.ts",
       "../src/common/entities/dtos/output.dto.ts",
