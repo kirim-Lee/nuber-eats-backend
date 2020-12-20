@@ -5845,8 +5845,98 @@
         "signature": "6dbc0a554c7416da27f08f05d90e8bdf4757f3a5c1d0688a561da37cc4298578",
         "affectsGlobalScope": false
       },
+      "../node_modules/p-cancelable/index.d.ts": {
+        "version": "3563ec7b709c5adf97e8467fc1d0d117aac33ce90a8e7db61dcc9aa10a9f2fb6",
+        "signature": "3563ec7b709c5adf97e8467fc1d0d117aac33ce90a8e7db61dcc9aa10a9f2fb6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": {
+        "version": "7ab735672492614a1af2098219bd191642e2bbd126e0631e13ed15e947238a51",
+        "signature": "7ab735672492614a1af2098219bd191642e2bbd126e0631e13ed15e947238a51",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/cacheable-lookup/index.d.ts": {
+        "version": "c77e2a25b0b7e23ad5b5087e16db5aeec6741dcc8e99b8aae1a6b58659083b6d",
+        "signature": "c77e2a25b0b7e23ad5b5087e16db5aeec6741dcc8e99b8aae1a6b58659083b6d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/keyv/index.d.ts": {
+        "version": "9e7f7ac4d964992cf1b77612ca07e5695821881aa1a9acb0ef0509f192a5ea23",
+        "signature": "9e7f7ac4d964992cf1b77612ca07e5695821881aa1a9acb0ef0509f192a5ea23",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/http-cache-semantics/index.d.ts": {
+        "version": "0bf440ab914e79e890cb15e5ffacb5e18bec678338b3eab069a5829d3d5c96e3",
+        "signature": "0bf440ab914e79e890cb15e5ffacb5e18bec678338b3eab069a5829d3d5c96e3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/responselike/index.d.ts": {
+        "version": "3cfb0cb51cc2c2e1b313d7c4df04dbf7e5bda0a133c6b309bf6af77cf614b971",
+        "signature": "3cfb0cb51cc2c2e1b313d7c4df04dbf7e5bda0a133c6b309bf6af77cf614b971",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/cacheable-request/index.d.ts": {
+        "version": "73c05cca1bb5aa8e93efd089af51643b7ff005e47064a0e624a74ee20480a2eb",
+        "signature": "73c05cca1bb5aa8e93efd089af51643b7ff005e47064a0e624a74ee20480a2eb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": {
+        "version": "e40f22ef14ca35f5019e16f852366d0880e42e955c03cc25da2abe689eef679c",
+        "signature": "e40f22ef14ca35f5019e16f852366d0880e42e955c03cc25da2abe689eef679c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": {
+        "version": "8d12345aee8dedececa587bb31701273a3088ba4f83e866cdfa26a05b3f36a13",
+        "signature": "8d12345aee8dedececa587bb31701273a3088ba4f83e866cdfa26a05b3f36a13",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts": {
+        "version": "01856d31c900d93d280293d98ec9ca9be4991ab3acd3216bf985513eba3544b8",
+        "signature": "01856d31c900d93d280293d98ec9ca9be4991ab3acd3216bf985513eba3544b8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/core/index.d.ts": {
+        "version": "c80e5bb2264a79bafa49cc34ad04b3354a1d72c75bbf5eb6ac580e327d48995a",
+        "signature": "c80e5bb2264a79bafa49cc34ad04b3354a1d72c75bbf5eb6ac580e327d48995a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/as-promise/types.d.ts": {
+        "version": "2c0d8c9cdea4f41f395b91f722ea0a18451c173ead39df01e4d4e82b80d26cff",
+        "signature": "2c0d8c9cdea4f41f395b91f722ea0a18451c173ead39df01e4d4e82b80d26cff",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/as-promise/index.d.ts": {
+        "version": "576ec53c444adac3b7725ced6240de54a04183791fe9d7cc880de11411114ff2",
+        "signature": "576ec53c444adac3b7725ced6240de54a04183791fe9d7cc880de11411114ff2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/types.d.ts": {
+        "version": "a23796c344ad16236b13a283af0d7d519cb9e9c9ba406bad0cd04871c6c78c95",
+        "signature": "a23796c344ad16236b13a283af0d7d519cb9e9c9ba406bad0cd04871c6c78c95",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/create.d.ts": {
+        "version": "b3e3394b5ffa583518ace1099d5df14cb887ec1578a023116fac4a35480d2b38",
+        "signature": "b3e3394b5ffa583518ace1099d5df14cb887ec1578a023116fac4a35480d2b38",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/got/dist/source/index.d.ts": {
+        "version": "ac3459d91154275b1cd916f265d0151fc4a4a3b3701b1c58cb7c32ea48a7aaec",
+        "signature": "ac3459d91154275b1cd916f265d0151fc4a4a3b3701b1c58cb7c32ea48a7aaec",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/form-data/index.d.ts": {
+        "version": "cbb7029e32a6a72178cda8baa9129b1ee6d1d779a35e46c780e38b4909d42a89",
+        "signature": "cbb7029e32a6a72178cda8baa9129b1ee6d1d779a35e46c780e38b4909d42a89",
+        "affectsGlobalScope": false
+      },
+      "../src/mail/mail.service.ts": {
+        "version": "f64e2d068a18c77b35204b20eb5e877b034338a3312be974b27282bcac0e2a51",
+        "signature": "8ba50835a379b9efa90ffb5e70ad44416ba8a0bdfb07338383a890da142383e1",
+        "affectsGlobalScope": false
+      },
       "../src/mail/mail.module.ts": {
-        "version": "5ccb09c3fe2690d40181f9314846243c9e0a8c44fba1941916c0b3a76d9294e5",
+        "version": "d93422a0337eb7caf67d7adfb10b1ba167c7be08151842a9d30ae1c70b9c2859",
         "signature": "d921e8ecabb54b627401fce2da91964f84b64592ac35b6c4679dc17d2fb6481f",
         "affectsGlobalScope": false
       },
@@ -7693,6 +7783,10 @@
       "../node_modules/@nestjs/typeorm/index.d.ts": [
         "../node_modules/@nestjs/typeorm/dist/index.d.ts"
       ],
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@ts-morph/common/lib/ts-morph-common.d.ts": [
         "../node_modules/typescript/lib/typescript.d.ts"
       ],
@@ -7721,6 +7815,15 @@
         "../node_modules/@types/connect/index.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@types/cacheable-request/index.d.ts": [
+        "../node_modules/@types/http-cache-semantics/index.d.ts",
+        "../node_modules/@types/keyv/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/responselike/index.d.ts"
       ],
       "../node_modules/@types/connect/index.d.ts": [
         "../node_modules/@types/node/http.d.ts",
@@ -7787,6 +7890,10 @@
         "../node_modules/joi/lib/index.d.ts"
       ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@types/keyv/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
@@ -7978,6 +8085,11 @@
         "../node_modules/@types/node/vm.d.ts"
       ],
       "../node_modules/@types/node/zlib.d.ts": [
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/responselike/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/@types/serve-static/index.d.ts": [
@@ -8592,6 +8704,10 @@
       "../node_modules/apollo-utilities/lib/util/isequal.d.ts": [
         "../node_modules/@wry/equality/lib/equality.d.ts"
       ],
+      "../node_modules/cacheable-lookup/index.d.ts": [
+        "../node_modules/@types/node/dns.d.ts",
+        "../node_modules/@types/node/http.d.ts"
+      ],
       "../node_modules/class-validator/types/decorator/array/arraycontains.d.ts": [
         "../node_modules/class-validator/types/decorator/validationoptions.d.ts"
       ],
@@ -9077,6 +9193,57 @@
       ],
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
+      ],
+      "../node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/got/dist/source/as-promise/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/as-promise/types.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/index.d.ts": [
+        "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+        "../node_modules/@types/cacheable-request/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/responselike/index.d.ts",
+        "../node_modules/cacheable-lookup/index.d.ts",
+        "../node_modules/got/dist/source/as-promise/types.d.ts",
+        "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+        "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+        "../node_modules/got/dist/source/core/utils/timed-out.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
+        "../node_modules/@types/node/url.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": [
+        "../node_modules/@types/node/http.d.ts"
+      ],
+      "../node_modules/got/dist/source/create.d.ts": [
+        "../node_modules/got/dist/source/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/create.d.ts",
+        "../node_modules/got/dist/source/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/types.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
       "../node_modules/graphql-extensions/dist/index.d.ts": [
         "../node_modules/apollo-server-env/dist/index.d.ts",
@@ -11052,6 +11219,14 @@
       "../src/mail/mail.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/common/common.constant.ts",
+        "../src/mail/mail.interface.ts",
+        "../src/mail/mail.service.ts"
+      ],
+      "../src/mail/mail.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/apollo-env/node_modules/form-data/index.d.ts",
+        "../node_modules/got/dist/source/index.d.ts",
+        "../src/common/common.constant.ts",
         "../src/mail/mail.interface.ts"
       ],
       "../src/main.ts": [
@@ -12648,6 +12823,10 @@
       "../node_modules/@nestjs/typeorm/index.d.ts": [
         "../node_modules/@nestjs/typeorm/dist/index.d.ts"
       ],
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../node_modules/@ts-morph/common/lib/ts-morph-common.d.ts": [
         "../node_modules/typescript/lib/typescript.d.ts"
       ],
@@ -12676,6 +12855,15 @@
         "../node_modules/@types/connect/index.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@types/cacheable-request/index.d.ts": [
+        "../node_modules/@types/http-cache-semantics/index.d.ts",
+        "../node_modules/@types/keyv/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/responselike/index.d.ts"
       ],
       "../node_modules/@types/connect/index.d.ts": [
         "../node_modules/@types/node/http.d.ts",
@@ -12742,6 +12930,10 @@
         "../node_modules/joi/lib/index.d.ts"
       ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@types/keyv/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/koa-compose/index.d.ts": [
@@ -12933,6 +13125,11 @@
         "../node_modules/@types/node/vm.d.ts"
       ],
       "../node_modules/@types/node/zlib.d.ts": [
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/responselike/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/@types/serve-static/index.d.ts": [
@@ -13547,6 +13744,10 @@
       "../node_modules/apollo-utilities/lib/util/isequal.d.ts": [
         "../node_modules/@wry/equality/lib/equality.d.ts"
       ],
+      "../node_modules/cacheable-lookup/index.d.ts": [
+        "../node_modules/@types/node/dns.d.ts",
+        "../node_modules/@types/node/http.d.ts"
+      ],
       "../node_modules/class-validator/types/decorator/array/arraycontains.d.ts": [
         "../node_modules/class-validator/types/decorator/validationoptions.d.ts"
       ],
@@ -14032,6 +14233,57 @@
       ],
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
+      ],
+      "../node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/got/dist/source/as-promise/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/as-promise/types.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/index.d.ts": [
+        "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+        "../node_modules/@types/cacheable-request/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/responselike/index.d.ts",
+        "../node_modules/cacheable-lookup/index.d.ts",
+        "../node_modules/got/dist/source/as-promise/types.d.ts",
+        "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+        "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+        "../node_modules/got/dist/source/core/utils/timed-out.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
+        "../node_modules/@types/node/url.d.ts"
+      ],
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": [
+        "../node_modules/@types/node/http.d.ts"
+      ],
+      "../node_modules/got/dist/source/create.d.ts": [
+        "../node_modules/got/dist/source/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/create.d.ts",
+        "../node_modules/got/dist/source/types.d.ts"
+      ],
+      "../node_modules/got/dist/source/types.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
       "../node_modules/graphql-extensions/dist/index.d.ts": [
         "../node_modules/apollo-server-env/dist/index.d.ts",
@@ -15974,6 +16226,9 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/mail/mail.interface.ts"
       ],
+      "../src/mail/mail.service.ts": [
+        "../src/mail/mail.interface.ts"
+      ],
       "../src/restaurant/dto/create-restaurant.dto.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/restaurant/entities/restaurant.entity.ts"
@@ -16414,6 +16669,7 @@
       "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts",
       "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts",
       "../node_modules/@nestjs/typeorm/index.d.ts",
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
       "../node_modules/@ts-morph/common/lib/ts-morph-common.d.ts",
       "../node_modules/@types/accepts/index.d.ts",
       "../node_modules/@types/anymatch/index.d.ts",
@@ -16423,6 +16679,7 @@
       "../node_modules/@types/babel__traverse/index.d.ts",
       "../node_modules/@types/bcrypt/index.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
+      "../node_modules/@types/cacheable-request/index.d.ts",
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/content-disposition/index.d.ts",
       "../node_modules/@types/cookiejar/index.d.ts",
@@ -16438,6 +16695,7 @@
       "../node_modules/@types/graceful-fs/index.d.ts",
       "../node_modules/@types/graphql-upload/index.d.ts",
       "../node_modules/@types/http-assert/index.d.ts",
+      "../node_modules/@types/http-cache-semantics/index.d.ts",
       "../node_modules/@types/http-errors/index.d.ts",
       "../node_modules/@types/istanbul-lib-coverage/index.d.ts",
       "../node_modules/@types/istanbul-lib-report/index.d.ts",
@@ -16448,6 +16706,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
       "../node_modules/@types/keygrip/index.d.ts",
+      "../node_modules/@types/keyv/index.d.ts",
       "../node_modules/@types/koa-compose/index.d.ts",
       "../node_modules/@types/koa/index.d.ts",
       "../node_modules/@types/long/index.d.ts",
@@ -16507,6 +16766,7 @@
       "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/qs/index.d.ts",
       "../node_modules/@types/range-parser/index.d.ts",
+      "../node_modules/@types/responselike/index.d.ts",
       "../node_modules/@types/serve-static/index.d.ts",
       "../node_modules/@types/source-list-map/index.d.ts",
       "../node_modules/@types/stack-utils/index.d.ts",
@@ -16657,6 +16917,7 @@
       "../node_modules/apollo-utilities/lib/util/stripsymbols.d.ts",
       "../node_modules/apollo-utilities/lib/util/warnonce.d.ts",
       "../node_modules/axios/index.d.ts",
+      "../node_modules/cacheable-lookup/index.d.ts",
       "../node_modules/class-validator/types/container.d.ts",
       "../node_modules/class-validator/types/decorator/array/arraycontains.d.ts",
       "../node_modules/class-validator/types/decorator/array/arraymaxsize.d.ts",
@@ -16780,6 +17041,16 @@
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts",
       "../node_modules/class-validator/types/validation/validatoroptions.d.ts",
       "../node_modules/eventemitter3/index.d.ts",
+      "../node_modules/form-data/index.d.ts",
+      "../node_modules/got/dist/source/as-promise/index.d.ts",
+      "../node_modules/got/dist/source/as-promise/types.d.ts",
+      "../node_modules/got/dist/source/core/index.d.ts",
+      "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts",
+      "../node_modules/got/dist/source/create.d.ts",
+      "../node_modules/got/dist/source/index.d.ts",
+      "../node_modules/got/dist/source/types.d.ts",
       "../node_modules/graphql-extensions/dist/index.d.ts",
       "../node_modules/graphql-extensions/node_modules/apollo-server-types/dist/index.d.ts",
       "../node_modules/graphql/error/formaterror.d.ts",
@@ -16887,6 +17158,7 @@
       "../node_modules/jest-diff/build/printdiffs.d.ts",
       "../node_modules/jest-diff/build/types.d.ts",
       "../node_modules/joi/lib/index.d.ts",
+      "../node_modules/p-cancelable/index.d.ts",
       "../node_modules/pretty-format/build/index.d.ts",
       "../node_modules/pretty-format/build/types.d.ts",
       "../node_modules/reflect-metadata/index.d.ts",
@@ -17270,6 +17542,7 @@
       "../src/jwt/jwt.service.ts",
       "../src/mail/mail.interface.ts",
       "../src/mail/mail.module.ts",
+      "../src/mail/mail.service.ts",
       "../src/main.ts",
       "../src/restaurant/dto/create-restaurant.dto.ts",
       "../src/restaurant/dto/update-restaurant.dto.ts",
