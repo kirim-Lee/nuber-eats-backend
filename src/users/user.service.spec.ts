@@ -28,6 +28,8 @@ type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 describe('UserService', () => {
   let service: UserService;
   let userRepository: MockRepository<User>;
+  let verificationRepository: MockRepository<Verification>;
+  let mailService: MailService;
 
   beforeAll(async () => {
     const modules = await Test.createTestingModule({
@@ -47,7 +49,9 @@ describe('UserService', () => {
     }).compile();
 
     service = modules.get<UserService>(UserService);
+    mailService = modules.get<MailService>(MailService);
     userRepository = modules.get(getRepositoryToken(User));
+    verificationRepository = modules.get(getRepositoryToken(Verification));
   });
 
   it('be defined', () => {
@@ -77,15 +81,35 @@ describe('UserService', () => {
       // mock
       userRepository.findOne.mockResolvedValue(undefined);
       userRepository.create.mockImplementation(user => user);
+      verificationRepository.create.mockImplementation(user => ({
+        ...user,
+        code: '12345',
+      }));
 
       // action
-      await service.createAccount(crateAccountArgs);
+      const result = await service.createAccount(crateAccountArgs);
 
       // test
       expect(userRepository.create).toHaveBeenCalledTimes(1);
       expect(userRepository.create).toHaveBeenCalledWith(crateAccountArgs);
       expect(userRepository.save).toHaveBeenCalledTimes(1);
       expect(userRepository.save).toHaveBeenCalledWith(crateAccountArgs);
+      expect(verificationRepository.create).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.create).toHaveBeenCalledWith({
+        user: crateAccountArgs,
+      });
+      expect(verificationRepository.save).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.save).toHaveBeenCalledWith({
+        user: crateAccountArgs,
+        code: '12345',
+      });
+      expect(mailService.sendVerificationEmail).toHaveBeenCalledTimes(1);
+      expect(mailService.sendVerificationEmail).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.any(String),
+      );
+
+      expect(result.ok).toBeTruthy();
     });
   });
 
