@@ -59,7 +59,7 @@ describe('UserService', () => {
   });
 
   describe('createAccount', () => {
-    const crateAccountArgs = {
+    const createAccount = {
       role: ROLE.CLIENT,
       password: '12345',
       email: 'mail@mail.com',
@@ -71,7 +71,7 @@ describe('UserService', () => {
         email: 'mail@mail.com',
       });
 
-      const res = await service.createAccount(crateAccountArgs);
+      const res = await service.createAccount(createAccount);
 
       expect(res.ok).toBeFalsy();
       expect(res.error).toBe('account is already exist');
@@ -87,22 +87,24 @@ describe('UserService', () => {
       }));
 
       // action
-      const result = await service.createAccount(crateAccountArgs);
+      const result = await service.createAccount(createAccount);
 
       // test
       expect(userRepository.create).toHaveBeenCalledTimes(1);
-      expect(userRepository.create).toHaveBeenCalledWith(crateAccountArgs);
+      expect(userRepository.create).toHaveBeenCalledWith(createAccount);
       expect(userRepository.save).toHaveBeenCalledTimes(1);
-      expect(userRepository.save).toHaveBeenCalledWith(crateAccountArgs);
+      expect(userRepository.save).toHaveBeenCalledWith(createAccount);
+
       expect(verificationRepository.create).toHaveBeenCalledTimes(1);
       expect(verificationRepository.create).toHaveBeenCalledWith({
-        user: crateAccountArgs,
+        user: createAccount,
       });
       expect(verificationRepository.save).toHaveBeenCalledTimes(1);
       expect(verificationRepository.save).toHaveBeenCalledWith({
-        user: crateAccountArgs,
+        user: createAccount,
         code: '12345',
       });
+
       expect(mailService.sendVerificationEmail).toHaveBeenCalledTimes(1);
       expect(mailService.sendVerificationEmail).toHaveBeenCalledWith(
         expect.any(String),
@@ -110,6 +112,13 @@ describe('UserService', () => {
       );
 
       expect(result.ok).toBeTruthy();
+    });
+
+    it('should fail on exception', async () => {
+      userRepository.findOne.mockRejectedValue(new Error('reject'));
+
+      const result = await service.createAccount(createAccount);
+      expect(result).toEqual({ ok: false, error: 'reject' });
     });
   });
 
