@@ -154,7 +154,8 @@ export class UserService {
         throw Error("verification code isn't exist");
       }
 
-      this.user.update(verification.user, { verified: true });
+      await this.user.update(verification.user, { verified: true });
+      await this.verification.delete(verification.id);
 
       return {
         ok: true,

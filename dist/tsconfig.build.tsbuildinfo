@@ -5772,7 +5772,7 @@
       },
       "../src/users/dtos/edit-profile.dto.ts": {
         "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "22121c1ef03cc80a5bd243f361a98565c572680550c0a87a6bd90e962a8ffda6",
+        "signature": "d29720f4a049d04936fe20329afe123ad78458827467b59e53891d2be98855d0",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/login.dto.ts": {
@@ -5806,7 +5806,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.service.ts": {
-        "version": "adf014493003bd4dd4398eddcec406419c68c25075e6d6d3214f345aac31cb4c",
+        "version": "cb3dfee31c591145aa39b31e15a08007bdc1301686b631099a13b50a9584afc6",
         "signature": "3e50b135bdfc4a186912eb0e8a2ebf4f3952a37dcc2dfcf7a0782f2ba2fb6e3f",
         "affectsGlobalScope": false
       },
