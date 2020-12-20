@@ -18,6 +18,7 @@ const jwt_module_1 = require("./jwt/jwt.module");
 const jwt_middleware_1 = require("./jwt/jwt.middleware");
 const auth_module_1 = require("./auth/auth.module");
 const verification_entity_1 = require("./users/entities/verification.entity");
+const mail_module_1 = require("./mail/mail.module");
 const isDev = process.env.NODE_ENV !== 'prod';
 let AppModule = class AppModule {
     configure(consumer) {
@@ -42,6 +43,9 @@ AppModule = __decorate([
                     DATABASE_PASSWORD: Joi.string().required(),
                     DATABASE_NAME: Joi.string().required(),
                     PRIVATE_KEY: Joi.string().required(),
+                    EMAIL_API_KEY: Joi.string().required(),
+                    EMAIL_DOMAIN: Joi.string().required(),
+                    EMAIL_FROM: Joi.string().required(),
                 }),
             }),
             typeorm_1.TypeOrmModule.forRoot({
@@ -61,7 +65,13 @@ AppModule = __decorate([
             }),
             users_module_1.UsersModule,
             jwt_module_1.JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
+            mail_module_1.MailModule.forRoot({
+                apiKey: process.env.EMAIL_API_KEY,
+                domain: process.env.EMAIL_DOMAIN,
+                from: process.env.EMAIL_FROM,
+            }),
             auth_module_1.AuthModule,
+            mail_module_1.MailModule,
         ],
         controllers: [],
         providers: [],

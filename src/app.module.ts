@@ -9,12 +9,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { UsersModule } from './users/users.module';
-import { CommonModule } from './common/common.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
 import { JwtMiddelware } from './jwt/jwt.middleware';
 import { AuthModule } from './auth/auth.module';
 import { Verification } from './users/entities/verification.entity';
+import { MailModule } from './mail/mail.module';
 
 const isDev = process.env.NODE_ENV !== 'prod';
 
@@ -33,6 +33,9 @@ const isDev = process.env.NODE_ENV !== 'prod';
         DATABASE_PASSWORD: Joi.string().required(),
         DATABASE_NAME: Joi.string().required(),
         PRIVATE_KEY: Joi.string().required(),
+        EMAIL_API_KEY: Joi.string().required(),
+        EMAIL_DOMAIN: Joi.string().required(),
+        EMAIL_FROM: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRoot({
@@ -52,7 +55,13 @@ const isDev = process.env.NODE_ENV !== 'prod';
     }),
     UsersModule,
     JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
+    MailModule.forRoot({
+      apiKey: process.env.EMAIL_API_KEY,
+      domain: process.env.EMAIL_DOMAIN,
+      from: process.env.EMAIL_FROM,
+    }),
     AuthModule,
+    MailModule,
   ],
   controllers: [],
   providers: [],
