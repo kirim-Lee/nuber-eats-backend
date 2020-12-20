@@ -5931,7 +5931,7 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.service.ts": {
-        "version": "f64e2d068a18c77b35204b20eb5e877b034338a3312be974b27282bcac0e2a51",
+        "version": "58ebe2624e61ff9eac8c4bc93101c657f16acb8a59cbe2ee719f76c0223aeff7",
         "signature": "8ba50835a379b9efa90ffb5e70ad44416ba8a0bdfb07338383a890da142383e1",
         "affectsGlobalScope": false
       },
