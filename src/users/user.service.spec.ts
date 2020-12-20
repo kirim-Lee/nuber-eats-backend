@@ -7,17 +7,12 @@ import { ROLE, User } from './entities/user.entity';
 import { Verification } from './entities/verification.entity';
 import { UserService } from './user.service';
 
-const mockRepository = {
+const mockRepository = () => ({
   findOne: jest.fn(),
   save: jest.fn(),
   create: jest.fn(),
-};
-
-const verifyRopository = {
-  create: jest.fn(),
-  save: jest.fn(),
   delete: jest.fn(),
-};
+});
 
 const mockJwtService = {
   sign: jest.fn(),
@@ -40,11 +35,11 @@ describe('UserService', () => {
         UserService,
         {
           provide: getRepositoryToken(User),
-          useValue: mockRepository,
+          useValue: mockRepository(),
         },
         {
           provide: getRepositoryToken(Verification),
-          useValue: verifyRopository,
+          useValue: mockRepository(),
         },
         { provide: JwtService, useValue: mockJwtService },
         { provide: MailService, useValue: mockMailService },
@@ -60,20 +55,37 @@ describe('UserService', () => {
   });
 
   describe('createAccount', () => {
+    const crateAccountArgs = {
+      role: ROLE.CLIENT,
+      password: '12345',
+      email: 'mail@mail.com',
+    };
+
     it('should fail if user exist', async () => {
       userRepository.findOne.mockResolvedValue({
         id: 1,
         email: 'mail@mail.com',
       });
 
-      const res = await service.createAccount({
-        role: ROLE.CLIENT,
-        password: '12345',
-        email: 'mail@mail.com',
-      });
+      const res = await service.createAccount(crateAccountArgs);
 
       expect(res.ok).toBeFalsy();
       expect(res.error).toBe('account is already exist');
+    });
+
+    it('should create a new user', async () => {
+      // mock
+      userRepository.findOne.mockResolvedValue(undefined);
+      userRepository.create.mockImplementation(user => user);
+
+      // action
+      await service.createAccount(crateAccountArgs);
+
+      // test
+      expect(userRepository.create).toHaveBeenCalledTimes(1);
+      expect(userRepository.create).toHaveBeenCalledWith(crateAccountArgs);
+      expect(userRepository.save).toHaveBeenCalledTimes(1);
+      expect(userRepository.save).toHaveBeenCalledWith(crateAccountArgs);
     });
   });
 
