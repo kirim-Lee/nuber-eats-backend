@@ -1,4 +1,4 @@
-import { Controller, UseGuards } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { AuthUser } from 'src/auth/auth.user.decorator';
@@ -14,7 +14,6 @@ import { User } from './entities/user.entity';
 import { UserService } from './user.service';
 
 @Resolver(of => User)
-@Controller()
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CONFIG_OPTIONS } from 'src/common/common.constant';
-import { MainModuleOption } from './mail.interface';
+import { MailVariables, MainModuleOption } from './mail.interface';
 import got from 'got';
 import * as FormData from 'form-data';
 
@@ -10,18 +10,22 @@ export class MailService {
     @Inject(CONFIG_OPTIONS) private readonly options: MainModuleOption,
   ) {}
 
-  private async sendEmail(subject: string, to: string) {
+  private async sendEmail(
+    to: string,
+    subject: string,
+    template: string,
+    emailVariables: MailVariables[],
+  ) {
     const form = new FormData();
-    form.append('from', `nuber@${this.options.domain}`);
+
+    form.append('from', `nuber eats <nuber@${this.options.domain}>`);
     form.append('to', to);
     form.append('subject', subject);
-    form.append('template', 'verify-email');
-    form.append('v:username', 'aaa');
-    form.append('v:code', 'code name');
+    form.append('template', template);
+    emailVariables.forEach(item => form.append(`v:${item.key}`, item.value));
 
-    const res = await got(
-      `https://api.mailgun.net/v3/${this.options.domain}/messages`,
-      {
+    try {
+      await got(`https://api.mailgun.net/v3/${this.options.domain}/messages`, {
         headers: {
           Authorization: `Basic ${Buffer.from(
             `api:${this.options.apiKey}`,
@@ -29,9 +33,20 @@ export class MailService {
         },
         method: 'POST',
         body: form,
-      },
-    );
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
-    console.log(res.body);
+  sendVerificationEmail(email: string, code: string) {
+    const subject = 'Verify you Email';
+    const template = 'verify-email';
+    const variables = [
+      { key: 'code', value: code },
+      { key: 'username', value: email },
+    ];
+
+    this.sendEmail(email, subject, template, variables);
   }
 }

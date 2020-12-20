@@ -5750,16 +5750,6 @@
         "signature": "da6f79977d480f1bb7713ea507c829741779e6452a491ace8e0a474263d3f2a8",
         "affectsGlobalScope": false
       },
-      "../src/auth/auth.guard.ts": {
-        "version": "47a713dccb5c380a90f1133df14c12e7379e719a4f335d10aa88a7c608d230f0",
-        "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
-        "affectsGlobalScope": false
-      },
-      "../src/auth/auth.user.decorator.ts": {
-        "version": "a4645132beba788e9d895d5e83a8b8258f13efc26afa302c669973e18489a485",
-        "signature": "cd1e457df3b82a86ca479fcda6e01c8ff3874ebdbdc812db7f6734d8561f4788",
-        "affectsGlobalScope": false
-      },
       "../src/common/entities/dtos/output.dto.ts": {
         "version": "abaf36fa68457c4fb0f1e8e69e8072780c16bc973705ac43bde8a5222f3276d3",
         "signature": "83b62ec1a108b77c82bbf7b83813c6582be6819aabd8de9b821563f7d91e3fbb",
@@ -5770,24 +5760,9 @@
         "signature": "1740d6fa06523a125f31e0880fef4d6a59207993ec176b4750537f623eb6744c",
         "affectsGlobalScope": false
       },
-      "../src/users/dtos/edit-profile.dto.ts": {
-        "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "d29720f4a049d04936fe20329afe123ad78458827467b59e53891d2be98855d0",
-        "affectsGlobalScope": false
-      },
       "../src/users/dtos/login.dto.ts": {
         "version": "df7959ea7eb98e7f595cb1b833d1dca71045708d91abbb60a898ec6c3d05b879",
         "signature": "764f99e4139fbe9cee9deaecbefc42d68174ee1d69f421cd9d737fa6bbe58fc0",
-        "affectsGlobalScope": false
-      },
-      "../src/users/dtos/user-profile.dto.ts": {
-        "version": "e85a80f966e6107b30b7ddfc29fdc15a8f87ae61d8312069db0fff71a862707a",
-        "signature": "cbfbff3dd8df54577df3941d5d77315250ec3c0e74c0e937a3650c5b6b53560f",
-        "affectsGlobalScope": false
-      },
-      "../src/users/dtos/verify-email.dto.ts": {
-        "version": "229684c1f2abdb1d2112bef025bc169e133daf62b344fcbb68b73c59f63206c6",
-        "signature": "581efd8b1262c392f0809c39e5ff63774e3065b1f9e317f1a0d9a690ec46f588",
         "affectsGlobalScope": false
       },
       "../src/jwt/jwt.interfaces.ts": {
@@ -5810,39 +5785,24 @@
         "signature": "c689f0e0a53ad432fedec4a011b977d7a7fba0ff9a4057aa3f735a2d75296b20",
         "affectsGlobalScope": false
       },
-      "../src/users/user.service.ts": {
-        "version": "cb3dfee31c591145aa39b31e15a08007bdc1301686b631099a13b50a9584afc6",
-        "signature": "3e50b135bdfc4a186912eb0e8a2ebf4f3952a37dcc2dfcf7a0782f2ba2fb6e3f",
+      "../src/users/dtos/edit-profile.dto.ts": {
+        "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
+        "signature": "d29720f4a049d04936fe20329afe123ad78458827467b59e53891d2be98855d0",
         "affectsGlobalScope": false
       },
-      "../src/users/user.resolver.ts": {
-        "version": "70bb63a062a4908ad86a457245ee4c777de3f2a6b990c8825f62b76a8d553959",
-        "signature": "5d042a9a8ac0b97812d9a773acb2e8922604f72268fcdc134c83e331ebfb910a",
+      "../src/users/dtos/user-profile.dto.ts": {
+        "version": "e85a80f966e6107b30b7ddfc29fdc15a8f87ae61d8312069db0fff71a862707a",
+        "signature": "cbfbff3dd8df54577df3941d5d77315250ec3c0e74c0e937a3650c5b6b53560f",
         "affectsGlobalScope": false
       },
-      "../src/users/users.module.ts": {
-        "version": "bf940cf74fa92892c2cf5b8d9987324c811449edcb284edeb8d742b7e1fc11b4",
-        "signature": "aa1725e38b5a0b4009f6a74f296f173e7926c119a60454dbd2e523861735df69",
-        "affectsGlobalScope": false
-      },
-      "../src/jwt/jwt.module.ts": {
-        "version": "3a777b0ca5c8b8a2865a9d59af83292a840418f78561699550a7683ee7920367",
-        "signature": "d157d193c7316bb6837a8e379f3d2c8c46553b613cebc59767c209782af48262",
-        "affectsGlobalScope": false
-      },
-      "../src/jwt/jwt.middleware.ts": {
-        "version": "14520283a89923c35e3bafa79b2de769b7e3805d453240012ea94fe4e236c3d1",
-        "signature": "4731db15689524c784c179e2a6155379998f36b8a4340bc2938a533245095955",
-        "affectsGlobalScope": false
-      },
-      "../src/auth/auth.module.ts": {
-        "version": "da2b8b8660542a34ee4e2d234d69b83fa7e8143d62392ba8bffa94561e7d7b98",
-        "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
+      "../src/users/dtos/verify-email.dto.ts": {
+        "version": "229684c1f2abdb1d2112bef025bc169e133daf62b344fcbb68b73c59f63206c6",
+        "signature": "581efd8b1262c392f0809c39e5ff63774e3065b1f9e317f1a0d9a690ec46f588",
         "affectsGlobalScope": false
       },
       "../src/mail/mail.interface.ts": {
-        "version": "d05e521ccb79f7a1e7df9830bb57685345ff6c169cb24bc79688f290ed8fb221",
-        "signature": "6dbc0a554c7416da27f08f05d90e8bdf4757f3a5c1d0688a561da37cc4298578",
+        "version": "347e9f103f6b86a5eae9a3c733090a4f9bcd3bb07210beabfec820bf01791d55",
+        "signature": "8f0f2995f5e7cb6cc0267c9a1781ee9ccaaeb07a7987bff26ee8259805d46888",
         "affectsGlobalScope": false
       },
       "../node_modules/p-cancelable/index.d.ts": {
@@ -5931,8 +5891,53 @@
         "affectsGlobalScope": false
       },
       "../src/mail/mail.service.ts": {
-        "version": "58ebe2624e61ff9eac8c4bc93101c657f16acb8a59cbe2ee719f76c0223aeff7",
-        "signature": "8ba50835a379b9efa90ffb5e70ad44416ba8a0bdfb07338383a890da142383e1",
+        "version": "9429ba526eecbdb75dfd895fd7d68756ea485e567af9de2266e7728d4ba72822",
+        "signature": "994245ce9e092690021f256f2de98f90d7e7c305a4b1f200f6dbe95b89211417",
+        "affectsGlobalScope": false
+      },
+      "../src/users/user.service.ts": {
+        "version": "8e120cc8213139aa8b1ac971a2929a87c46b98c2a040ed276f87209afd005c05",
+        "signature": "8b1920cc51cbf3990b9c98959c325cd6c8998812d1634b460030aa8d7f57ef85",
+        "affectsGlobalScope": false
+      },
+      "../src/users/user.controller.ts": {
+        "version": "4127d6f50a1673e68dd266edc62b045de2f1fabda400289a627e52e08400d172",
+        "signature": "ff00b85a153cd2f8b51ad7abc84730871eb2a072e1e85807b1606c75a74ad8b6",
+        "affectsGlobalScope": false
+      },
+      "../src/auth/auth.guard.ts": {
+        "version": "47a713dccb5c380a90f1133df14c12e7379e719a4f335d10aa88a7c608d230f0",
+        "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
+        "affectsGlobalScope": false
+      },
+      "../src/auth/auth.user.decorator.ts": {
+        "version": "a4645132beba788e9d895d5e83a8b8258f13efc26afa302c669973e18489a485",
+        "signature": "cd1e457df3b82a86ca479fcda6e01c8ff3874ebdbdc812db7f6734d8561f4788",
+        "affectsGlobalScope": false
+      },
+      "../src/users/user.resolver.ts": {
+        "version": "01ee00e2b03d77f42691075bd6e04f8ea30708888a9ae0e22ad4cb2763784e9e",
+        "signature": "5d042a9a8ac0b97812d9a773acb2e8922604f72268fcdc134c83e331ebfb910a",
+        "affectsGlobalScope": false
+      },
+      "../src/users/users.module.ts": {
+        "version": "8b4a8ade64e3fbe5359fdba7932da0b38dea1870683e6c7744221b674e14333a",
+        "signature": "aa1725e38b5a0b4009f6a74f296f173e7926c119a60454dbd2e523861735df69",
+        "affectsGlobalScope": false
+      },
+      "../src/jwt/jwt.module.ts": {
+        "version": "3a777b0ca5c8b8a2865a9d59af83292a840418f78561699550a7683ee7920367",
+        "signature": "d157d193c7316bb6837a8e379f3d2c8c46553b613cebc59767c209782af48262",
+        "affectsGlobalScope": false
+      },
+      "../src/jwt/jwt.middleware.ts": {
+        "version": "14520283a89923c35e3bafa79b2de769b7e3805d453240012ea94fe4e236c3d1",
+        "signature": "4731db15689524c784c179e2a6155379998f36b8a4340bc2938a533245095955",
+        "affectsGlobalScope": false
+      },
+      "../src/auth/auth.module.ts": {
+        "version": "da2b8b8660542a34ee4e2d234d69b83fa7e8143d62392ba8bffa94561e7d7b98",
+        "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
         "affectsGlobalScope": false
       },
       "../src/mail/mail.module.ts": {
@@ -11308,6 +11313,10 @@
         "../src/common/entities/core.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/user.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/users/user.service.ts"
+      ],
       "../src/users/user.resolver.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -11326,6 +11335,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/jwt/jwt.service.ts",
+        "../src/mail/mail.service.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -11339,6 +11349,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/users/entities/user.entity.ts",
         "../src/users/entities/verification.entity.ts",
+        "../src/users/user.controller.ts",
         "../src/users/user.resolver.ts",
         "../src/users/user.service.ts"
       ]
@@ -16281,6 +16292,10 @@
         "../src/common/entities/core.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/users/user.controller.ts": [
+        "../src/users/dtos/verify-email.dto.ts",
+        "../src/users/user.service.ts"
+      ],
       "../src/users/user.resolver.ts": [
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
@@ -16293,6 +16308,7 @@
       "../src/users/user.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/jwt/jwt.service.ts",
+        "../src/mail/mail.service.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
         "../src/users/dtos/login.dto.ts",
@@ -17557,6 +17573,7 @@
       "../src/users/dtos/verify-email.dto.ts",
       "../src/users/entities/user.entity.ts",
       "../src/users/entities/verification.entity.ts",
+      "../src/users/user.controller.ts",
       "../src/users/user.resolver.ts",
       "../src/users/user.service.ts",
       "../src/users/users.module.ts"
