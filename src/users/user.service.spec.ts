@@ -15,7 +15,7 @@ const mockRepository = () => ({
 });
 
 const mockJwtService = {
-  sign: jest.fn(),
+  sign: jest.fn(() => 'token-string'),
   verify: jest.fn(),
 };
 
@@ -30,8 +30,9 @@ describe('UserService', () => {
   let userRepository: MockRepository<User>;
   let verificationRepository: MockRepository<Verification>;
   let mailService: MailService;
+  let jwtService: JwtService;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const modules = await Test.createTestingModule({
       providers: [
         UserService,
@@ -50,6 +51,7 @@ describe('UserService', () => {
 
     service = modules.get<UserService>(UserService);
     mailService = modules.get<MailService>(MailService);
+    jwtService = modules.get<JwtService>(JwtService);
     userRepository = modules.get(getRepositoryToken(User));
     verificationRepository = modules.get(getRepositoryToken(Verification));
   });
@@ -122,7 +124,51 @@ describe('UserService', () => {
     });
   });
 
-  it.todo('login');
+  describe('login', () => {
+    const loginArgs = {
+      email: 'mail@mail.com',
+      password: '12345',
+    };
+    it('should fail if user does not exist', async () => {
+      userRepository.findOne.mockResolvedValue(undefined);
+      const result = await service.login(loginArgs);
+
+      expect(userRepository.findOne).toBeCalledTimes(1);
+      expect(userRepository.findOne).toBeCalledWith(
+        expect.any(Object),
+        expect.any(Object),
+      );
+      expect(result).toEqual({ ok: false, error: new Error('user not found') });
+    });
+
+    it('should fail if the password is wrong', async () => {
+      const mockedUser = {
+        checkPassword: jest.fn(() => Promise.resolve(false)),
+      };
+      userRepository.findOne.mockResolvedValue(mockedUser);
+      const result = await service.login(loginArgs);
+
+      expect(result).toEqual({
+        ok: false,
+        error: new Error('password not correct'),
+      });
+    });
+
+    it('should return token if password correct', async () => {
+      const mockedUser = {
+        id: 1,
+        checkPassword: jest.fn(() => Promise.resolve(true)),
+      };
+      userRepository.findOne.mockResolvedValue(mockedUser);
+
+      const result = await service.login(loginArgs);
+
+      expect(jwtService.sign).toHaveBeenCalledTimes(1);
+      expect(jwtService.sign).toHaveBeenCalledWith({ id: 1 });
+      expect(result).toEqual({ ok: true, token: 'token-string' });
+    });
+  });
+
   it.todo('findById');
   it.todo('userProfile');
 
