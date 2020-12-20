@@ -5,7 +5,7 @@ import { InternalServerErrorException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { IsEmail, IsEnum } from 'class-validator';
 
-enum ROLE {
+export enum ROLE {
   CLIENT = 'client',
   OWNER = 'owner',
   DELIVERY = 'delivery',

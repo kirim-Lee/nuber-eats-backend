@@ -32,6 +32,7 @@ export class UserService {
     try {
       // check new user
       const exist = await this.user.findOne({ email });
+
       if (exist) {
         // make error
         throw Error('account is already exist');
@@ -52,7 +53,7 @@ export class UserService {
     } catch (error) {
       return {
         ok: false,
-        error,
+        error: error.message,
       };
     }
   }
