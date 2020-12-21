@@ -169,8 +169,32 @@ describe('UserService', () => {
     });
   });
 
-  it.todo('findById');
-  it.todo('userProfile');
+  describe('findById', () => {
+    it('should find an existing user', async () => {
+      userRepository.findOne.mockResolvedValue({ id: 1 });
+      const result = await service.findById(1);
+      expect(result).toEqual({ id: 1 });
+    });
+  });
+
+  describe('userProfile', () => {
+    const findByIdArg = {
+      id: 1,
+    };
+    it('should find existing user', async () => {
+      userRepository.findOne.mockResolvedValue(findByIdArg);
+      const result = await service.userProfile(1);
+
+      expect(result).toEqual({ ok: true, profile: findByIdArg });
+    });
+
+    it('should fail if no user if not found', async () => {
+      userRepository.findOne.mockResolvedValue(undefined);
+      const result = await service.userProfile(1);
+
+      expect(result).toEqual({ ok: false, error: 'user not found' });
+    });
+  });
 
   it.todo('editProfile');
   it.todo('verifyEmail');
