@@ -12,6 +12,7 @@ const mockRepository = () => ({
   save: jest.fn(),
   create: jest.fn(),
   delete: jest.fn(),
+  update: jest.fn(),
 });
 
 const mockJwtService = () => ({
@@ -265,5 +266,47 @@ describe('UserService', () => {
     });
   });
 
-  it.todo('verifyEmail');
+  describe('verifyEmail', () => {
+    it('should fail verification not found', async () => {
+      verificationRepository.findOne.mockResolvedValue(undefined);
+      const result = await service.verifyEmail('12345');
+
+      expect(verificationRepository.findOne).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.update).not.toHaveBeenCalled();
+      expect(verificationRepository.delete).not.toHaveBeenCalled();
+
+      expect(result).toEqual({
+        ok: false,
+        error: "verification code isn't exist",
+      });
+    });
+
+    it('should success verification', async () => {
+      const mockedVerification = {
+        user: 1,
+        code: '12345',
+        id: 1,
+      };
+      verificationRepository.findOne.mockResolvedValue(mockedVerification);
+      const result = await service.verifyEmail(mockedVerification.code);
+
+      expect(verificationRepository.findOne).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.findOne).toHaveBeenCalledWith(
+        { code: mockedVerification.code },
+        expect.any(Object),
+      );
+
+      expect(userRepository.update).toHaveBeenCalledTimes(1);
+      expect(
+        userRepository.update,
+      ).toHaveBeenCalledWith(mockedVerification.user, { verified: true });
+
+      expect(verificationRepository.delete).toHaveBeenCalledTimes(1);
+      expect(verificationRepository.delete).toHaveBeenCalledWith(
+        mockedVerification.id,
+      );
+
+      expect(result).toEqual({ ok: true });
+    });
+  });
 });
