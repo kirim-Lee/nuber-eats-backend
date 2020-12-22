@@ -204,6 +204,7 @@ describe('UserService', () => {
     const editProfileArgs = {
       id: 1,
       email: 'mail@new.com',
+      password: 'new-password',
     };
 
     const newVerification = {
@@ -212,6 +213,7 @@ describe('UserService', () => {
 
     const newUser = {
       email: editProfileArgs.email,
+      password: editProfileArgs.password,
       verified: false,
     };
 
@@ -220,7 +222,10 @@ describe('UserService', () => {
       verificationRepository.create.mockReturnValue(newVerification);
       verificationRepository.save.mockReturnValue(newVerification);
 
-      await service.editProfile(editProfileArgs.id, editProfileArgs);
+      const result = await service.editProfile(
+        editProfileArgs.id,
+        editProfileArgs,
+      );
 
       expect(userRepository.findOne).toHaveBeenCalledTimes(1);
       expect(userRepository.findOne).toHaveBeenCalledWith({
@@ -239,6 +244,24 @@ describe('UserService', () => {
         newUser.email,
         newVerification.code,
       );
+
+      expect(userRepository.save).toHaveBeenCalledTimes(1);
+      expect(userRepository.save).toHaveBeenCalledWith(newUser);
+
+      expect(result).toEqual({ ok: true });
+    });
+
+    it('should return error if not exist user', async () => {
+      userRepository.findOne.mockResolvedValue(undefined);
+
+      const result = await service.editProfile(
+        editProfileArgs.id,
+        editProfileArgs,
+      );
+      expect(result).toEqual({ ok: false, error: 'user info not exist' });
+      expect(verificationRepository.create).not.toBeCalled();
+      expect(userRepository.save).not.toBeCalled();
+      expect(mailService.sendVerificationEmail).not.toBeCalled();
     });
   });
 
