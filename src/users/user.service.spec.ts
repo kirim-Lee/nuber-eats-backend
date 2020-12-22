@@ -14,14 +14,14 @@ const mockRepository = () => ({
   delete: jest.fn(),
 });
 
-const mockJwtService = {
+const mockJwtService = () => ({
   sign: jest.fn(() => 'token-string'),
   verify: jest.fn(),
-};
+});
 
-const mockMailService = {
+const mockMailService = () => ({
   sendVerificationEmail: jest.fn(),
-};
+});
 
 type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 
@@ -44,8 +44,8 @@ describe('UserService', () => {
           provide: getRepositoryToken(Verification),
           useValue: mockRepository(),
         },
-        { provide: JwtService, useValue: mockJwtService },
-        { provide: MailService, useValue: mockMailService },
+        { provide: JwtService, useValue: mockJwtService() },
+        { provide: MailService, useValue: mockMailService() },
       ],
     }).compile();
 
