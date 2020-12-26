@@ -5,6 +5,7 @@ import { getConnection, Repository } from 'typeorm';
 import * as request from 'supertest';
 import { User } from 'src/users/entities/user.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { Verification } from 'src/users/entities/verification.entity';
 
 jest.mock('got', () => {
   return {
@@ -19,6 +20,7 @@ const PASSWORD = '12345';
 describe('UserModule (e2e)', () => {
   let app: INestApplication;
   let userRepository: Repository<User>;
+  let verificationRepository: Repository<Verification>;
   let token: string;
 
   beforeAll(async () => {
@@ -28,6 +30,9 @@ describe('UserModule (e2e)', () => {
 
     app = module.createNestApplication();
     userRepository = module.get<Repository<User>>(getRepositoryToken(User));
+    verificationRepository = module.get<Repository<Verification>>(
+      getRepositoryToken(Verification),
+    );
     await app.init();
   });
 
@@ -320,5 +325,50 @@ describe('UserModule (e2e)', () => {
       expect(user).not.toBeNull();
     });
   });
-  it.todo('verifyEmail');
+
+  describe('verifyEmail', () => {
+    let verificationCode: string;
+    let userId: number;
+    beforeAll(async () => {
+      const [verification] = await verificationRepository.find({
+        loadRelationIds: true,
+      });
+
+      verificationCode = verification.code;
+      userId =
+        typeof verification.user === 'number'
+          ? verification.user
+          : verification.user.id;
+    });
+
+    it('before verification should false', async () => {
+      const user = await userRepository.findOne({ id: userId });
+      expect(user.verified).toBeFalsy();
+    });
+
+    it('sould verify email', () => {
+      return request(app.getHttpServer())
+        .get(`/confirm?code=${verificationCode}`)
+        .expect(200)
+        .expect(res => {
+          expect(res.body.ok).toBeTruthy();
+          expect(res.body.error).toBeUndefined();
+        });
+    });
+
+    it('after verification should true', async () => {
+      const user = await userRepository.findOne({ id: userId });
+      expect(user.verified).toBeTruthy();
+    });
+
+    it('should fail on wrong verification code', () => {
+      return request(app.getHttpServer())
+        .get('/confirm?code=wrongCode')
+        .expect(200)
+        .expect(res => {
+          expect(res.body.ok).toBeFalsy();
+          expect(res.body.error).toBe("verification code isn't exist");
+        });
+    });
+  });
 });
