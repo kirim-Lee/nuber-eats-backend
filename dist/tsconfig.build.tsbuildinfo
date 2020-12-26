@@ -5741,7 +5741,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/entities/user.entity.ts": {
-        "version": "a5b6ab63ae74099a4c4810258ee3e0db54e4acded3b08fe4213d2aa794fe54b9",
+        "version": "7f010d24fea54a23900e757a5789db9755c26c62d6f2b3e5c687d58a7324748a",
         "signature": "663c96665a9c7442f1596e3bb6c1cc40aa7729cfd2ec8ecfb6fe9dfb4f57f05e",
         "affectsGlobalScope": false
       },
