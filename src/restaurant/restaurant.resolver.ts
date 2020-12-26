@@ -5,7 +5,7 @@ import {
   CreateRestaurantOutput,
 } from './dto/create-restaurant.dto';
 import { RestaurantService } from './restaurant.service';
-import { AuthUser } from 'src/auth/auth.user.decorator';
+import { AuthUser, Roles } from 'src/auth/auth.user.decorator';
 import { User } from 'src/users/entities/user.entity';
 
 @Resolver(of => Restaurant)
@@ -13,6 +13,7 @@ export class RestaurantResolver {
   constructor(private readonly restaurantService: RestaurantService) {}
 
   @Mutation(returns => CreateRestaurantOutput)
+  @Roles(['OWNER'])
   createRestaurant(
     @AuthUser() authUser: User,
     @Args() createRestaurantArgs: CreateRestaurantInput,

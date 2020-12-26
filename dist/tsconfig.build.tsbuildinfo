@@ -5915,18 +5915,13 @@
         "signature": "ff00b85a153cd2f8b51ad7abc84730871eb2a072e1e85807b1606c75a74ad8b6",
         "affectsGlobalScope": false
       },
-      "../src/auth/auth.guard.ts": {
-        "version": "47a713dccb5c380a90f1133df14c12e7379e719a4f335d10aa88a7c608d230f0",
-        "signature": "89cbe528206d39a629cf5e072460519f1305bf844df942749e376a24a983d0dd",
-        "affectsGlobalScope": false
-      },
       "../src/auth/auth.user.decorator.ts": {
-        "version": "a4645132beba788e9d895d5e83a8b8258f13efc26afa302c669973e18489a485",
-        "signature": "cd1e457df3b82a86ca479fcda6e01c8ff3874ebdbdc812db7f6734d8561f4788",
+        "version": "fa91c4ab362f156ba822036f75b77ae002051f7991fbf2b0fb5239f318f36a09",
+        "signature": "48cbf11aca436c11f132771f98b0c6bdd85005d98a0f85a33453e6875cd8ffe9",
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "01ee00e2b03d77f42691075bd6e04f8ea30708888a9ae0e22ad4cb2763784e9e",
+        "version": "9028bee0830c1b70b788b1e12973cd3b4d18592284997d57aaa4664419449ec1",
         "signature": "5d042a9a8ac0b97812d9a773acb2e8922604f72268fcdc134c83e331ebfb910a",
         "affectsGlobalScope": false
       },
@@ -5945,8 +5940,13 @@
         "signature": "4731db15689524c784c179e2a6155379998f36b8a4340bc2938a533245095955",
         "affectsGlobalScope": false
       },
+      "../src/auth/auth.guard.ts": {
+        "version": "e1fb2c31721ef01888af07d82e00e8a32b2ba73ae6a486bcffaf437798c9997c",
+        "signature": "d18f0e1a9a99ad9427da17e3f70d960f25e75c51a3d3dce0f929847c86a6acad",
+        "affectsGlobalScope": false
+      },
       "../src/auth/auth.module.ts": {
-        "version": "da2b8b8660542a34ee4e2d234d69b83fa7e8143d62392ba8bffa94561e7d7b98",
+        "version": "819e47e3cad690bb31cfd44e9f0c6f815fbdb5b8577a0afa87796fda798e01ec",
         "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
         "affectsGlobalScope": false
       },
@@ -5966,7 +5966,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/restaurant.resolver.ts": {
-        "version": "e908fb064cf6621c96dfefe17e69f06eb7ddb9319c1f017c3c04b390b3faa6dd",
+        "version": "febdad44b6b9c30d6f6bfb54216601355357639ec187187355a935c5ee0ba745",
         "signature": "0abb782c8e8d472bd9546693313dc5bb2a86e021c8b374a3de403c46dd3f9355",
         "affectsGlobalScope": false
       },
@@ -11187,14 +11187,20 @@
       ],
       "../src/auth/auth.guard.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/graphql/index.d.ts"
+        "../node_modules/@nestjs/core/index.d.ts",
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/auth/auth.user.decorator.ts",
+        "../src/users/entities/user.entity.ts"
       ],
       "../src/auth/auth.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/core/index.d.ts",
+        "../src/auth/auth.guard.ts"
       ],
       "../src/auth/auth.user.decorator.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/graphql/index.d.ts"
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/users/entities/user.entity.ts"
       ],
       "../src/common/common.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -11333,9 +11339,7 @@
         "../src/users/user.service.ts"
       ],
       "../src/users/user.resolver.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/graphql/index.d.ts",
-        "../src/auth/auth.guard.ts",
         "../src/auth/auth.user.decorator.ts",
         "../src/users/dtos/create-account.dto.ts",
         "../src/users/dtos/edit-profile.dto.ts",
@@ -16233,7 +16237,12 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/auth/auth.guard.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/core/index.d.ts"
+      ],
+      "../src/auth/auth.user.decorator.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/users/entities/user.entity.ts"
       ],
       "../src/jwt/jwt.middleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
