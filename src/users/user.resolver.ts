@@ -28,6 +28,7 @@ export class UserResolver {
   }
 
   @Query(returns => User)
+  @Roles(['Any'])
   me(@AuthUser() authUser: User) {
     return authUser;
   }

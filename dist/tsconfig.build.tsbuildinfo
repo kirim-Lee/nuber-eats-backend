@@ -5921,7 +5921,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "9028bee0830c1b70b788b1e12973cd3b4d18592284997d57aaa4664419449ec1",
+        "version": "e177d13698a21a6aa18dd104940a02c3f03bb59666652725e1c821b8c22b24d1",
         "signature": "5d042a9a8ac0b97812d9a773acb2e8922604f72268fcdc134c83e331ebfb910a",
         "affectsGlobalScope": false
       },
