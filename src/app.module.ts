@@ -15,6 +15,8 @@ import { JwtMiddelware } from './jwt/jwt.middleware';
 import { AuthModule } from './auth/auth.module';
 import { Verification } from './users/entities/verification.entity';
 import { MailModule } from './mail/mail.module';
+import { Restaurant } from './restaurant/entities/restaurant.entity';
+import { Category } from './restaurant/entities/category.entity';
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -47,7 +49,7 @@ const isProd = process.env.NODE_ENV === 'prod';
       database: process.env.DATABASE_NAME,
       synchronize: !isProd,
       logging: !isProd,
-      entities: [User, Verification],
+      entities: [User, Verification, Restaurant, Category],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
