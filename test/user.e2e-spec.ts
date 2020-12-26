@@ -281,11 +281,44 @@ describe('UserModule (e2e)', () => {
           const {
             body: { errors, data },
           } = res;
-          expect(errors[0].message).toBe('forbidden Resourse');
+          expect(errors[0].message).toBe('Forbidden resource');
           expect(data).toBeNull();
         });
     });
   });
-  it.todo('editProfile');
+
+  describe('editProfile', () => {
+    const newEmail = 'change@change.com';
+    it('should change email', () => {
+      return request(app.getHttpServer())
+        .post(GRAPHQL_ENDPOINT)
+        .set('X-JWT', token)
+        .send({
+          query: `mutation {
+            editProfile(email:"${newEmail}"){
+            ok
+            error
+          }
+          }`,
+        })
+        .expect(200)
+        .expect(async res => {
+          const {
+            body: {
+              data: {
+                editProfile: { ok, error },
+              },
+            },
+          } = res;
+          expect(ok).toBeTruthy();
+          expect(error).toBeNull();
+        });
+    });
+
+    it('should return after email change', async () => {
+      const user = await userRepository.findOne({ email: newEmail });
+      expect(user).not.toBeNull();
+    });
+  });
   it.todo('verifyEmail');
 });
