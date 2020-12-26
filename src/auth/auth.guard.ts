@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     // role이 any 면 로그인되면 true
     // role이 지정되면 해당 롤만 가능
     // role 이 없으면 public
-
+    // 메타데이터를 reflector를 이용해 가져올수 있음
     const roles = this.reflector
       .get<AllowRoles[]>('roles', context.getHandler())
       ?.map(role => ROLE[role] ?? 'Any');
