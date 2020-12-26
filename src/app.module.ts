@@ -17,6 +17,7 @@ import { Verification } from './users/entities/verification.entity';
 import { MailModule } from './mail/mail.module';
 import { Restaurant } from './restaurant/entities/restaurant.entity';
 import { Category } from './restaurant/entities/category.entity';
+import { RestaurantModule } from './restaurant/restaurant.module';
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -56,6 +57,7 @@ const isProd = process.env.NODE_ENV === 'prod';
       context: ({ req }) => ({ user: req['user'] }),
     }),
     UsersModule,
+    RestaurantModule,
     JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
     MailModule.forRoot({
       apiKey: process.env.EMAIL_API_KEY,

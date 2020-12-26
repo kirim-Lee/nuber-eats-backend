@@ -1,9 +1,10 @@
 import { ArgsType, Field, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { CoreEntity } from 'src/common/entities/core.entity';
-import { BeforeInsert, BeforeUpdate, Column, Entity } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 import { InternalServerErrorException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { IsBoolean, IsEmail, IsEnum, IsString } from 'class-validator';
+import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 
 export enum ROLE {
   CLIENT = 'client',
@@ -40,6 +41,9 @@ export class User extends CoreEntity {
   @Field(type => Boolean)
   @IsBoolean()
   verified: boolean;
+
+  @OneToMany(type => Restaurant, restaurant => restaurant.owner)
+  restaurants: Restaurant[];
 
   @BeforeInsert()
   @BeforeUpdate()

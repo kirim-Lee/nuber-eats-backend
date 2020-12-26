@@ -21,6 +21,7 @@ const verification_entity_1 = require("./users/entities/verification.entity");
 const mail_module_1 = require("./mail/mail.module");
 const restaurant_entity_1 = require("./restaurant/entities/restaurant.entity");
 const category_entity_1 = require("./restaurant/entities/category.entity");
+const restaurant_module_1 = require("./restaurant/restaurant.module");
 const isProd = process.env.NODE_ENV === 'prod';
 let AppModule = class AppModule {
     configure(consumer) {
@@ -66,6 +67,7 @@ AppModule = __decorate([
                 context: ({ req }) => ({ user: req['user'] }),
             }),
             users_module_1.UsersModule,
+            restaurant_module_1.RestaurantModule,
             jwt_module_1.JwtModule.forRoot({ privateKey: process.env.PRIVATE_KEY }),
             mail_module_1.MailModule.forRoot({
                 apiKey: process.env.EMAIL_API_KEY,

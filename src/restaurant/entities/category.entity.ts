@@ -18,10 +18,6 @@ export class Category extends CoreEntity {
   @IsString()
   icon: string;
 
-  @OneToMany(type => Restaurant, restaurant => restaurant.category, {
-    onUpdate: 'CASCADE',
-    onDelete: 'SET NULL',
-  })
-  @Field(type => [Restaurant])
+  @OneToMany(type => Restaurant, restaurant => restaurant.category)
   restaurants: Restaurant[];
 }
