@@ -126,6 +126,13 @@ export class UserService {
       }
 
       if (email) {
+        // before email unique check
+        const alreadyUser = await this.user.findOne({ email });
+
+        if (alreadyUser) {
+          throw Error('you choosen email is already exist');
+        }
+
         user.email = email;
         user.verified = false;
         await this.verification.delete({ user });
