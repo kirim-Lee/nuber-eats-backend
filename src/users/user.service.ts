@@ -85,7 +85,7 @@ export class UserService {
     } catch (error) {
       return {
         ok: false,
-        error,
+        error: error.message,
       };
     }
   }

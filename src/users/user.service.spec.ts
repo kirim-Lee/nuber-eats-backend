@@ -139,7 +139,7 @@ describe('UserService', () => {
         expect.any(Object),
         expect.any(Object),
       );
-      expect(result).toEqual({ ok: false, error: new Error('user not found') });
+      expect(result).toEqual({ ok: false, error: 'user not found' });
     });
 
     it('should fail if the password is wrong', async () => {
@@ -151,7 +151,7 @@ describe('UserService', () => {
 
       expect(result).toEqual({
         ok: false,
-        error: new Error('password not correct'),
+        error: 'password not correct',
       });
     });
 

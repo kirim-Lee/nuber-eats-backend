@@ -19,7 +19,7 @@ const jwt_middleware_1 = require("./jwt/jwt.middleware");
 const auth_module_1 = require("./auth/auth.module");
 const verification_entity_1 = require("./users/entities/verification.entity");
 const mail_module_1 = require("./mail/mail.module");
-const isDev = process.env.NODE_ENV !== 'prod';
+const isProd = process.env.NODE_ENV === 'prod';
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -33,7 +33,7 @@ AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
                 envFilePath: `.env.${process.env.NODE_ENV}`,
-                ignoreEnvFile: !isDev,
+                ignoreEnvFile: isProd,
                 validationSchema: Joi.object({
                     NODE_ENV: Joi.string().valid('dev', 'prod', 'test').default('dev'),
                     PORT: Joi.number().default(5432),
@@ -55,8 +55,8 @@ AppModule = __decorate([
                 username: process.env.DATABASE_USER,
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
-                synchronize: isDev,
-                logging: isDev,
+                synchronize: !isProd,
+                logging: !isProd,
                 entities: [user_entity_1.User, verification_entity_1.Verification],
             }),
             graphql_1.GraphQLModule.forRoot({
