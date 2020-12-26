@@ -14,6 +14,6 @@ export const AuthUser = createParamDecorator(
   },
 );
 
-export type TypeRoles = keyof typeof ROLE | 'Any';
+export type AllowRoles = keyof typeof ROLE | 'Any';
 
-export const Roles = (roles: TypeRoles[]) => SetMetadata('roles', roles);
+export const Roles = (roles: AllowRoles[]) => SetMetadata('roles', roles);

@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { Reflector } from '@nestjs/core';
 import { ROLE, User } from 'src/users/entities/user.entity';
-import { TypeRoles } from './auth.user.decorator';
+import { AllowRoles } from './auth.user.decorator';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     // role 이 없으면 public
 
     const roles = this.reflector
-      .get<TypeRoles[]>('roles', context.getHandler())
+      .get<AllowRoles[]>('roles', context.getHandler())
       ?.map(role => ROLE[role] ?? 'Any');
 
     if (!roles) {
