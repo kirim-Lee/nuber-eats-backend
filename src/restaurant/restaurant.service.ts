@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/users/entities/user.entity';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import {
   CreateRestaurantInput,
   CreateRestaurantOutput,
@@ -10,34 +10,19 @@ import {
   EditRestaurantInput,
   EditRestaurantOutput,
 } from './dto/edit-restaurant.dto';
-import { Category } from './entities/category.entity';
 import { Restaurant } from './entities/restaurant.entity';
+import { CategoryRepository } from './repositories/category.repository';
 
 @Injectable()
 export class RestaurantService {
   constructor(
     @InjectRepository(Restaurant)
     private readonly restaurants: Repository<Restaurant>,
-    @InjectRepository(Category)
-    private readonly categories: Repository<Category>,
+    private readonly categories: CategoryRepository,
   ) {}
 
   getAll(): Promise<Restaurant[]> {
     return this.restaurants.find({ take: 10 });
-  }
-
-  private async getOrCreateCategory(name: string): Promise<Category> {
-    const categoryName = name.trim().toLowerCase();
-    const categorySlug = categoryName.replace(/\s/g, '-');
-    const category = await this.categories.findOne({ slug: categorySlug });
-
-    if (!category) {
-      return await this.categories.save(
-        this.categories.create({ slug: categorySlug, name: categoryName }),
-      );
-    }
-
-    return category;
   }
 
   async createRestaurant(
@@ -51,7 +36,7 @@ export class RestaurantService {
       newRestaurant.owner = owner;
 
       // category
-      newRestaurant.category = await this.getOrCreateCategory(
+      newRestaurant.category = await this.categories.getOrCreate(
         createRestaurantInput.categoryName,
       );
 
@@ -87,7 +72,13 @@ export class RestaurantService {
         throw Error('owner is not belonged this restaurant');
       }
 
-      await this.restaurants.save(restaurant);
+      if (editRestaurantInput.categoryName) {
+        restaurant.category = await this.categories.getOrCreate(
+          editRestaurantInput.categoryName,
+        );
+      }
+
+      await this.restaurants.save({ ...restaurant, ...editRestaurantInput });
 
       return {
         ok: true,
