@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CoreOutput } from 'src/common/entities/dtos/output.dto';
 import { User } from 'src/users/entities/user.entity';
-import { Repository } from 'typeorm';
+import { Raw, Repository } from 'typeorm';
 import { AllCategoriesOutput } from './dto/all-categories.dto';
 import { CategoryInput, CategoryOutput } from './dto/category.dto';
 import {
@@ -17,7 +16,12 @@ import {
   EditRestaurantInput,
   EditRestaurantOutput,
 } from './dto/edit-restaurant.dto';
+import { RestaurantInput, RestaurantOutput } from './dto/restaurant.dto';
 import { RestaurantsInput, RestaurantsOutput } from './dto/restaurants.dto';
+import {
+  SearchRestaurantInput,
+  SearchRestaurantOutput,
+} from './dto/search-restaurant.dto';
 import { Category } from './entities/category.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { CategoryRepository } from './repositories/category.repository';
@@ -207,6 +211,53 @@ export class RestaurantService {
         totalPages: Math.ceil(totalResults / limit),
         totalResults,
         results,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async findRestaurantById(
+    restaurantInput: RestaurantInput,
+  ): Promise<RestaurantOutput> {
+    try {
+      const result = await this.restaurants.findOne({
+        id: restaurantInput.restaurantId,
+      });
+      if (!result) {
+        throw Error("restaurant coudln't found");
+      }
+      return {
+        ok: true,
+        result,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async searchRestaurantByName({
+    query,
+    page,
+  }: SearchRestaurantInput): Promise<SearchRestaurantOutput> {
+    try {
+      const [restaurants, totalResults] = await this.restaurants.findAndCount({
+        where: { name: Raw(name => `${name} ILIKE '%${query}%'`) },
+        take: limit,
+        skip: (page - 1) * limit,
+      });
+
+      return {
+        ok: true,
+        totalPages: Math.ceil(totalResults / limit),
+        totalResults,
+        result: restaurants,
       };
     } catch (error) {
       return {
