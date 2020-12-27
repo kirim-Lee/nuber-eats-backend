@@ -7,6 +7,10 @@ import {
   CreateRestaurantOutput,
 } from './dto/create-restaurant.dto';
 import {
+  DeleteRestaurantInput,
+  DeleteRestaurantOutput,
+} from './dto/delete-restaurant.dto';
+import {
   EditRestaurantInput,
   EditRestaurantOutput,
 } from './dto/edit-restaurant.dto';
@@ -88,6 +92,32 @@ export class RestaurantService {
         ok: false,
         error: error.message,
       };
+    }
+  }
+
+  async deleteRestaurant(
+    owner: User,
+    { id }: DeleteRestaurantInput,
+  ): Promise<DeleteRestaurantOutput> {
+    try {
+      const restaurant = await this.restaurants.findOne(
+        { id },
+        { loadRelationIds: true },
+      );
+
+      if (!restaurant) {
+        throw Error("restaurant isn't not exist");
+      }
+
+      if (restaurant.ownerId !== owner.id) {
+        throw Error('able to delete by only owner');
+      }
+
+      await this.restaurants.delete({ id });
+
+      return { ok: true };
+    } catch (error) {
+      return { ok: false, error: error.message };
     }
   }
 }
