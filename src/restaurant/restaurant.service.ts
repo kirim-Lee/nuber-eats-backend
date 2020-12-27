@@ -181,12 +181,12 @@ export class RestaurantService {
         skip: (page - 1) * limit,
       });
 
-      category.restaurants = restaurants;
       const totalRestaurants = await this.getRestaurantCount(category);
 
       return {
         ok: true,
         category,
+        restaurants,
         totalPages: Math.ceil(totalRestaurants / limit),
       };
     } catch (error) {
