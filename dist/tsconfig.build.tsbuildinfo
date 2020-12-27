@@ -5741,7 +5741,7 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/category.entity.ts": {
-        "version": "5f7d0cb33cc57d8adbd9e85d86326270e9739bbe8256a9e501c31d7d14f5647d",
+        "version": "271f5ed31e7f67bf829e4cdf9058c62a1c3511195f591238109260dff5c33631",
         "signature": "036dcaf66fd46f5aa20f32fadd54d19fd8c2c49760af9799db309a8e027c657e",
         "affectsGlobalScope": false
       },
@@ -5970,6 +5970,11 @@
         "signature": "1674e2b69dbee717d0336d3b4b0619a7ee081c624fff0e078eb3e2de0f8b1f58",
         "affectsGlobalScope": false
       },
+      "../src/restaurant/dto/category.dto.ts": {
+        "version": "c9c9553e81b909e1c538d67982ccdbc7d5d6fff28cb00d0cb1436a6e72b267c6",
+        "signature": "d3616ad038545867055b3168eec6cc04b382c5cbb5d2bdd6090b5a5f93c49db1",
+        "affectsGlobalScope": false
+      },
       "../src/restaurant/dto/delete-restaurant.dto.ts": {
         "version": "0e394865c889b0c6ea9e8b0b36e56fa4bd51e05d7a3826d500fc5480dd7d9986",
         "signature": "19debf86fd289703fb2f2db18b1991d5092d23b02c0fac82d3871333fc98f022",
@@ -5981,13 +5986,13 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/restaurant.service.ts": {
-        "version": "27c854567d5650c19c9280c974d336ecf9c7ab27476e8ca5fe22e0e4ce128c6c",
-        "signature": "6ae8610f4450f905c6625655dced02ca01b229715cd67806b82d078759378011",
+        "version": "766f01ef64acfd49995c43cacb77bf906c9ed8a3f335fe0e480316a164f22d83",
+        "signature": "08071f72afa5e39c0be0f67b798f75531119100bb146472e89e1e0cf67d18ae1",
         "affectsGlobalScope": false
       },
       "../src/restaurant/restaurant.resolver.ts": {
-        "version": "10b575fa296e8a417d3a2f403d51aca9bab3d495caae99196a876b96a718bcef",
-        "signature": "82bf8e1949d0bf30cd9100c4e22e9e1d8042b5161320750da4948562ce9437bb",
+        "version": "7fb264780aa5ff59e03ea619ab0ab9470a07cdc9bbc6816893a6d2b3f933530e",
+        "signature": "8a1cb1c8bbb3ed1fc2a594656eeed9456e8830cd3cb7a787fef2457d3768817c",
         "affectsGlobalScope": false
       },
       "../src/restaurant/restaurant.module.ts": {
@@ -11273,6 +11278,11 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/restaurant/entities/category.entity.ts"
       ],
+      "../src/restaurant/dto/category.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/restaurant/entities/category.entity.ts"
+      ],
       "../src/restaurant/dto/create-restaurant.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
@@ -11321,6 +11331,7 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/auth/auth.user.decorator.ts",
         "../src/restaurant/dto/all-categories.dto.ts",
+        "../src/restaurant/dto/category.dto.ts",
         "../src/restaurant/dto/create-restaurant.dto.ts",
         "../src/restaurant/dto/delete-restaurant.dto.ts",
         "../src/restaurant/dto/edit-restaurant.dto.ts",
@@ -11335,6 +11346,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
         "../src/restaurant/dto/all-categories.dto.ts",
+        "../src/restaurant/dto/category.dto.ts",
         "../src/restaurant/dto/create-restaurant.dto.ts",
         "../src/restaurant/dto/delete-restaurant.dto.ts",
         "../src/restaurant/dto/edit-restaurant.dto.ts",
@@ -16317,6 +16329,10 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/restaurant/entities/category.entity.ts"
       ],
+      "../src/restaurant/dto/category.dto.ts": [
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/restaurant/entities/category.entity.ts"
+      ],
       "../src/restaurant/dto/create-restaurant.dto.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
@@ -16347,6 +16363,7 @@
       ],
       "../src/restaurant/restaurant.resolver.ts": [
         "../src/restaurant/dto/all-categories.dto.ts",
+        "../src/restaurant/dto/category.dto.ts",
         "../src/restaurant/dto/create-restaurant.dto.ts",
         "../src/restaurant/dto/delete-restaurant.dto.ts",
         "../src/restaurant/dto/edit-restaurant.dto.ts",
@@ -16357,6 +16374,7 @@
       "../src/restaurant/restaurant.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/restaurant/dto/all-categories.dto.ts",
+        "../src/restaurant/dto/category.dto.ts",
         "../src/restaurant/dto/create-restaurant.dto.ts",
         "../src/restaurant/dto/delete-restaurant.dto.ts",
         "../src/restaurant/dto/edit-restaurant.dto.ts",
@@ -17667,6 +17685,7 @@
       "../src/mail/mail.service.ts",
       "../src/main.ts",
       "../src/restaurant/dto/all-categories.dto.ts",
+      "../src/restaurant/dto/category.dto.ts",
       "../src/restaurant/dto/create-restaurant.dto.ts",
       "../src/restaurant/dto/delete-restaurant.dto.ts",
       "../src/restaurant/dto/edit-restaurant.dto.ts",

@@ -4,6 +4,7 @@ import { CoreOutput } from 'src/common/entities/dtos/output.dto';
 import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { AllCategoriesOutput } from './dto/all-categories.dto';
+import { CategoryInput, CategoryOutput } from './dto/category.dto';
 import {
   CreateRestaurantInput,
   CreateRestaurantOutput,
@@ -158,6 +159,23 @@ export class RestaurantService {
     } catch (error) {
       console.log(error);
       return 0;
+    }
+  }
+
+  async findCategoryBySlug({ slug }: CategoryInput): Promise<CategoryOutput> {
+    try {
+      const category = await this.categories.findOne(
+        { slug },
+        { relations: ['restaurants'] },
+      );
+
+      if (!category) {
+        throw Error('category not found');
+      }
+
+      return { ok: true, category };
+    } catch (error) {
+      return { ok: false, error: error.message };
     }
   }
 }
