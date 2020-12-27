@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CoreOutput } from 'src/common/entities/dtos/output.dto';
 import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import {
@@ -56,15 +57,17 @@ export class RestaurantService {
     }
   }
 
-  async editRestaurant(
-    owner: User,
-    editRestaurantInput: EditRestaurantInput,
-  ): Promise<EditRestaurantOutput> {
+  async isOwnerRestaurantOwner(
+    restaurantId: number,
+    ownerId: number,
+  ): Promise<{
+    ok: boolean;
+    error?: string | null;
+    restaurant?: null | Restaurant;
+  }> {
     try {
       const restaurant = await this.restaurants.findOne(
-        {
-          id: editRestaurantInput.restaurantId,
-        },
+        { id: restaurantId },
         { loadRelationIds: true },
       );
 
@@ -72,8 +75,28 @@ export class RestaurantService {
         throw Error("restaurant isn't exist");
       }
 
-      if (restaurant.ownerId !== owner.id) {
+      if (restaurant.ownerId !== ownerId) {
         throw Error('owner is not belonged this restaurant');
+      }
+
+      return { ok: true, restaurant };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }
+
+  async editRestaurant(
+    owner: User,
+    editRestaurantInput: EditRestaurantInput,
+  ): Promise<EditRestaurantOutput> {
+    try {
+      const { ok, restaurant, error } = await this.isOwnerRestaurantOwner(
+        editRestaurantInput.restaurantId,
+        owner.id,
+      );
+
+      if (!ok) {
+        return { ok, error };
       }
 
       if (editRestaurantInput.categoryName) {
@@ -100,17 +123,10 @@ export class RestaurantService {
     { id }: DeleteRestaurantInput,
   ): Promise<DeleteRestaurantOutput> {
     try {
-      const restaurant = await this.restaurants.findOne(
-        { id },
-        { loadRelationIds: true },
-      );
+      const { ok, error } = await this.isOwnerRestaurantOwner(id, owner.id);
 
-      if (!restaurant) {
-        throw Error("restaurant isn't not exist");
-      }
-
-      if (restaurant.ownerId !== owner.id) {
-        throw Error('able to delete by only owner');
+      if (!ok) {
+        return { ok, error };
       }
 
       await this.restaurants.delete({ id });
