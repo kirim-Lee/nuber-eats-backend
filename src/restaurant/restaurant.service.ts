@@ -17,9 +17,12 @@ import {
   EditRestaurantInput,
   EditRestaurantOutput,
 } from './dto/edit-restaurant.dto';
+import { RestaurantsInput, RestaurantsOutput } from './dto/restaurants.dto';
 import { Category } from './entities/category.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { CategoryRepository } from './repositories/category.repository';
+
+const limit = 25;
 
 @Injectable()
 export class RestaurantService {
@@ -173,8 +176,6 @@ export class RestaurantService {
         throw Error('category not found');
       }
 
-      const limit = 25;
-
       const restaurants = await this.restaurants.find({
         where: { category },
         take: limit,
@@ -191,6 +192,27 @@ export class RestaurantService {
       };
     } catch (error) {
       return { ok: false, error: error.message };
+    }
+  }
+
+  async allRestaurants({ page }: RestaurantsInput): Promise<RestaurantsOutput> {
+    try {
+      const [results, totalResults] = await this.restaurants.findAndCount({
+        skip: (page - 1) * limit,
+        take: limit,
+      });
+
+      return {
+        ok: true,
+        totalPages: Math.ceil(totalResults / limit),
+        totalResults,
+        results,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
     }
   }
 }
