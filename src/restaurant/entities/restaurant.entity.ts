@@ -42,7 +42,7 @@ export class Restaurant extends CoreEntity {
   category: Category;
 
   @RelationId((restaurant: Restaurant) => restaurant.category)
-  categoriId: number;
+  categoryId: number;
 
   @ManyToOne(type => User, user => user.restaurants)
   owner: User;
