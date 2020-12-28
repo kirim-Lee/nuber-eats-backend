@@ -9,10 +9,12 @@ import {
   CreateRestaurantInput,
   CreateRestaurantOutput,
 } from './dto/create-restaurant.dto';
+import { DeleteDishInput, DeleteDishOutput } from './dto/delete-dish.dto';
 import {
   DeleteRestaurantInput,
   DeleteRestaurantOutput,
 } from './dto/delete-restaurant.dto';
+import { EditDishInput, EditDishOutput } from './dto/edit-dish.dto';
 import {
   EditRestaurantInput,
   EditRestaurantOutput,
@@ -305,6 +307,72 @@ export class RestaurantService {
       await this.dish.save(
         this.dish.create({ ...createDishInput, restaurant }),
       );
+
+      return { ok: true };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+  async editDish(
+    owner: User,
+    editDishInput: EditDishInput,
+  ): Promise<EditDishOutput> {
+    try {
+      const dish = await this.dish.findOne(editDishInput.dishId, {
+        loadRelationIds: true,
+      });
+
+      if (!dish) {
+        throw Error('dish is not exist');
+      }
+
+      const { ok, error } = await this.isOwnerRestaurantOwner(
+        dish.restaurantId,
+        owner.id,
+      );
+
+      if (!ok) {
+        return {
+          ok,
+          error,
+        };
+      }
+
+      await this.dish.save({ ...dish, ...editDishInput });
+
+      return { ok: true };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async deleteDish(
+    owner: User,
+    { dishId }: DeleteDishInput,
+  ): Promise<DeleteDishOutput> {
+    try {
+      const dish = await this.dish.findOne(dishId, { loadRelationIds: true });
+
+      if (!dish) {
+        throw Error("dish isn't exist");
+      }
+
+      const { ok, error } = await this.isOwnerRestaurantOwner(
+        dish.restaurantId,
+        owner.id,
+      );
+
+      if (!ok) {
+        return { ok, error };
+      }
+
+      await this.dish.delete(dishId);
 
       return { ok: true };
     } catch (error) {
