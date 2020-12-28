@@ -23,6 +23,8 @@ const restaurant_entity_1 = require("./restaurant/entities/restaurant.entity");
 const category_entity_1 = require("./restaurant/entities/category.entity");
 const restaurant_module_1 = require("./restaurant/restaurant.module");
 const dish_entity_1 = require("./restaurant/entities/dish.entity");
+const orders_module_1 = require("./orders/orders.module");
+const order_entity_1 = require("./orders/entities/order.entity");
 const isProd = process.env.NODE_ENV === 'prod';
 let AppModule = class AppModule {
     configure(consumer) {
@@ -61,7 +63,7 @@ AppModule = __decorate([
                 database: process.env.DATABASE_NAME,
                 synchronize: !isProd,
                 logging: !isProd,
-                entities: [user_entity_1.User, verification_entity_1.Verification, restaurant_entity_1.Restaurant, category_entity_1.Category, dish_entity_1.Dish],
+                entities: [user_entity_1.User, verification_entity_1.Verification, restaurant_entity_1.Restaurant, category_entity_1.Category, dish_entity_1.Dish, order_entity_1.Order],
             }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
@@ -77,6 +79,7 @@ AppModule = __decorate([
             }),
             auth_module_1.AuthModule,
             mail_module_1.MailModule,
+            orders_module_1.OrdersModule,
         ],
         controllers: [],
         providers: [],
