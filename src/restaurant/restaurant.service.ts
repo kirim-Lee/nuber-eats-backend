@@ -24,6 +24,7 @@ import {
   SearchRestaurantOutput,
 } from './dto/search-restaurant.dto';
 import { Category } from './entities/category.entity';
+import { Dish } from './entities/dish.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { CategoryRepository } from './repositories/category.repository';
 
@@ -35,6 +36,8 @@ export class RestaurantService {
     @InjectRepository(Restaurant)
     private readonly restaurants: Repository<Restaurant>,
     private readonly categories: CategoryRepository,
+    @InjectRepository(Dish)
+    private readonly dish: Repository<Dish>,
   ) {}
 
   getAll(): Promise<Restaurant[]> {
@@ -68,6 +71,7 @@ export class RestaurantService {
     }
   }
 
+  // 레스토랑 아이디의 소유주가 사용자 아이디인지 확인
   async isOwnerRestaurantOwner(
     restaurantId: number,
     ownerId: number,
@@ -277,7 +281,31 @@ export class RestaurantService {
     createDishInput: CreateDishInput,
   ): Promise<CreateDishOutput> {
     try {
-      const restaurant = await this.restaurants.findOne({ id: 1 });
+      const { ok, error, restaurant } = await this.isOwnerRestaurantOwner(
+        createDishInput.restaurantId,
+        owner.id,
+      );
+
+      if (!ok) {
+        return {
+          ok,
+          error,
+        };
+      }
+
+      const existDish = await this.dish.findOne({
+        name: createDishInput.name,
+        restaurant,
+      });
+
+      if (existDish) {
+        throw Error('dish name is already exist');
+      }
+
+      await this.dish.save(
+        this.dish.create({ ...createDishInput, restaurant }),
+      );
+
       return { ok: true };
     } catch (error) {
       return {
