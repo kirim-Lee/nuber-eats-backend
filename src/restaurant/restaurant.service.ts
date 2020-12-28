@@ -4,6 +4,7 @@ import { User } from 'src/users/entities/user.entity';
 import { Raw, Repository } from 'typeorm';
 import { AllCategoriesOutput } from './dto/all-categories.dto';
 import { CategoryInput, CategoryOutput } from './dto/category.dto';
+import { CreateDishInput, CreateDishOutput } from './dto/create-dish.dto';
 import {
   CreateRestaurantInput,
   CreateRestaurantOutput,
@@ -224,9 +225,12 @@ export class RestaurantService {
     restaurantInput: RestaurantInput,
   ): Promise<RestaurantOutput> {
     try {
-      const result = await this.restaurants.findOne({
-        id: restaurantInput.restaurantId,
-      });
+      const result = await this.restaurants.findOne(
+        {
+          id: restaurantInput.restaurantId,
+        },
+        { relations: ['menu'] },
+      );
       if (!result) {
         throw Error("restaurant coudln't found");
       }
@@ -251,6 +255,7 @@ export class RestaurantService {
         where: { name: Raw(name => `${name} ILIKE '%${query}%'`) },
         take: limit,
         skip: (page - 1) * limit,
+        relations: ['menu'],
       });
 
       return {
@@ -259,6 +264,21 @@ export class RestaurantService {
         totalResults,
         result: restaurants,
       };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async createDish(
+    owner: User,
+    createDishInput: CreateDishInput,
+  ): Promise<CreateDishOutput> {
+    try {
+      const restaurant = await this.restaurants.findOne({ id: 1 });
+      return { ok: true };
     } catch (error) {
       return {
         ok: false,
