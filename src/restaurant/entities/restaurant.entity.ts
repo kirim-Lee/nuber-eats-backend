@@ -6,10 +6,12 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   RelationId,
 } from 'typeorm';
 import { Category } from './category.entity';
+import { Dish } from './dish.entity';
 
 @ArgsType()
 @ObjectType()
@@ -22,7 +24,7 @@ export class Restaurant extends CoreEntity {
   @Column({ unique: true })
   @Field(type => String)
   @IsString()
-  @Length(5, 10)
+  @Length(5, 20)
   name: string;
 
   @Column()
@@ -49,4 +51,8 @@ export class Restaurant extends CoreEntity {
 
   @RelationId((restaurant: Restaurant) => restaurant.owner)
   ownerId: number;
+
+  @Field(type => [Dish], { nullable: true })
+  @OneToMany(type => Dish, dish => dish.restaurant)
+  menu: Dish[];
 }

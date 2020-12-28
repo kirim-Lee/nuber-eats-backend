@@ -18,6 +18,7 @@ import { MailModule } from './mail/mail.module';
 import { Restaurant } from './restaurant/entities/restaurant.entity';
 import { Category } from './restaurant/entities/category.entity';
 import { RestaurantModule } from './restaurant/restaurant.module';
+import { Dish } from './restaurant/entities/dish.entity';
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -50,7 +51,7 @@ const isProd = process.env.NODE_ENV === 'prod';
       database: process.env.DATABASE_NAME,
       synchronize: !isProd,
       logging: !isProd,
-      entities: [User, Verification, Restaurant, Category],
+      entities: [User, Verification, Restaurant, Category, Dish],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
