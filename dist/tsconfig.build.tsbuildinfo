@@ -5746,8 +5746,8 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/dish.entity.ts": {
-        "version": "86077d00d5eaa4a86af28d2939d17148ee297df11375a88c03543c783f18e544",
-        "signature": "87b120e953051f3f6a3f1bd452dadac40f33a94638061438a2a491f0be9b13de",
+        "version": "1a3de054bb30179fda1737289ccfbe426bebc26bf3d2e268a01da350a479b872",
+        "signature": "ef205b1b6a41a932ab6cc60d37559c57d10fbdd16d9743b3b4a91606bb1d7d02",
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/restaurant.entity.ts": {
@@ -5802,7 +5802,7 @@
       },
       "../src/users/dtos/edit-profile.dto.ts": {
         "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "1a7e8755a9fc235e03901ebc236b9029e29609d7e302ad39b1ca98f52fff479b",
+        "signature": "091468b2ddddb9f1ebec0828515b687216d8ba2e8d6f29bfcddb61ff74cd03d6",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/user-profile.dto.ts": {
