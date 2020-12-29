@@ -16,6 +16,10 @@ export class OrderService {
     createOrderInput: CreateOrderInput,
   ): Promise<CreateOrderOutput> {
     try {
+      const order = this.orders.create(createOrderInput);
+      order.customer = customer;
+      await this.orders.save(order);
+      return { ok: true };
     } catch (error) {
       return { ok: false, error: error.message };
     }
