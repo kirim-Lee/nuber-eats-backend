@@ -2,6 +2,7 @@ import {
   ArgsType,
   Field,
   Float,
+  InputType,
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
@@ -27,9 +28,9 @@ enum ORDER_STATUS {
 
 registerEnumType(ORDER_STATUS, { name: 'OrderStatus' });
 
-@Entity()
-@ObjectType()
 @ArgsType()
+@ObjectType()
+@Entity()
 export class Order extends CoreEntity {
   @Field(type => User)
   @ManyToOne(type => User, user => user.orders, { onDelete: 'RESTRICT' })
@@ -59,8 +60,8 @@ export class Order extends CoreEntity {
   @JoinTable()
   dishes: Dish[];
 
-  @Column()
-  @Field(type => Float)
+  @Column({ nullable: true })
+  @Field(type => Float, { nullable: true })
   total: number;
 
   @Column({ type: 'enum', enum: ORDER_STATUS })
