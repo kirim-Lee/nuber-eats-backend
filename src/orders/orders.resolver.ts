@@ -59,7 +59,7 @@ export class OrderResolver {
   }
 
   @Mutation(returns => String)
-  orderTest(@Args('str') str: string): boolean {
+  orderTest(@AuthUser() authUser: User, @Args('str') str: string): boolean {
     pubSub.publish('orderArrived', { str });
     return true;
   }

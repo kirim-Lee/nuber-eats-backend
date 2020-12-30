@@ -1,9 +1,4 @@
-import {
-  MiddlewareConsumer,
-  Module,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
@@ -11,7 +6,6 @@ import * as Joi from 'joi';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { JwtModule } from './jwt/jwt.module';
-import { JwtMiddelware } from './jwt/jwt.middleware';
 import { AuthModule } from './auth/auth.module';
 import { Verification } from './users/entities/verification.entity';
 import { MailModule } from './mail/mail.module';
@@ -66,8 +60,9 @@ const isProd = process.env.NODE_ENV === 'prod';
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
-      context: ({ req, connection }) =>
-        connection ? connection.context : { user: req['user'] },
+      context: ({ req, connection }) => ({
+        token: connection ? connection.context['X-JWT'] : req.headers['x-jwt'],
+      }),
       installSubscriptionHandlers: true,
     }),
     UsersModule,
@@ -85,10 +80,4 @@ const isProd = process.env.NODE_ENV === 'prod';
   controllers: [],
   providers: [],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(JwtMiddelware)
-      .forRoutes({ path: '/graphql', method: RequestMethod.ALL });
-  }
-}
+export class AppModule {}
