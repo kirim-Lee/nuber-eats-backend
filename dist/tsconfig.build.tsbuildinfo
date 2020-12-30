@@ -5750,23 +5750,23 @@
         "signature": "036dcaf66fd46f5aa20f32fadd54d19fd8c2c49760af9799db309a8e027c657e",
         "affectsGlobalScope": false
       },
+      "../src/restaurant/entities/dish.entity.ts": {
+        "version": "984b12a8a2215c9409fce8a8e46c9fae755a8038aafcf4e8ec79f257e65fbeb3",
+        "signature": "bbcc56f72ec60a1e5d963961b973dde584a9bc50b605220dee0a8630debaafbf",
+        "affectsGlobalScope": false
+      },
       "../src/restaurant/entities/restaurant.entity.ts": {
         "version": "a4917bdfeada0fe05504ccddc9a097f0c17036a1c8555a68c65d8c6c9229e0c6",
         "signature": "569873c5ae01a5de5227d6ca010a75df32780e47a96a99e9e7d9ca320cae669e",
         "affectsGlobalScope": false
       },
-      "../src/restaurant/entities/dish.entity.ts": {
-        "version": "807758f88d00d3ba0ddc14cb4173ff3bd0b1088b8781e40e5710a1c365b3a9e2",
-        "signature": "df3b7b57417a3f87ddb0a4eb906c4cfb956b0a460158c1eac41ea493c0b1f9eb",
-        "affectsGlobalScope": false
-      },
       "../src/orders/entities/order-item.entity.ts": {
-        "version": "477372b43518cc5509b3e240f94c7aa35cb6878cccfe96e5137b0b2b77d67b21",
-        "signature": "0d44242409b2e9611b38be2fac7161b1e90ad7dd55eaedadaa79263ac2dca3c5",
+        "version": "9976ba5846655a615c411d8068e239b40a96ed522a53fb61427e1e99d52cc772",
+        "signature": "a54debc43ce1d58b463fc28584fc8aad6afd81e2ade5884945bea883ffee3bc7",
         "affectsGlobalScope": false
       },
       "../src/orders/entities/order.entity.ts": {
-        "version": "689db9c5c7ff40cbb5d4a28cd332e48f080b85647f86453dd26b4dc334424494",
+        "version": "9faa9e6c0417111ef72ee6b920cc09133076276a157fec90c01f618da9323149",
         "signature": "49dbb5df82664e78ed90c9d9c65b050f2cd26c4a3e8bc58bfc69653613d85034",
         "affectsGlobalScope": false
       },
@@ -5812,7 +5812,7 @@
       },
       "../src/users/dtos/edit-profile.dto.ts": {
         "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "64d2115105c5efd4ba83e6b7f67ca6176b1aeb31cd84d5992c5d68e0da4c7916",
+        "signature": "7553849e32241788f29a928962ee4182cea75e1ccbbd0e9019eed18d032dea32",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/user-profile.dto.ts": {
@@ -5977,7 +5977,7 @@
       },
       "../src/restaurant/dto/create-restaurant.dto.ts": {
         "version": "99100c4837f2c890ade8d53c603f31203553d6bc49a6c5d44ef2903ded8532f3",
-        "signature": "781aee7fbe67c6a9491e7fcaa4125e12b3e30da93a88f728db49d7636fb2426f",
+        "signature": "d62784bde0260d24b457e8b1519d4f6dd8211f07c7531c6edc5670c39ea33dd6",
         "affectsGlobalScope": false
       },
       "../src/restaurant/dto/all-categories.dto.ts": {
@@ -5997,7 +5997,7 @@
       },
       "../src/restaurant/dto/create-dish.dto.ts": {
         "version": "16c176c8178df37b6c0c63235bade5f65830b4d7705e6ab45d69fa63918cdffe",
-        "signature": "587b7aeb97323379efc58d50585b168f37028c3d388b57563a7d3ccf0d00130d",
+        "signature": "1e8c0bc8e76f7417181b9808be6e8b4616c8c5c7809c7c00a6eab78a44ff8e40",
         "affectsGlobalScope": false
       },
       "../src/restaurant/dto/delete-dish.dto.ts": {
@@ -6012,7 +6012,7 @@
       },
       "../src/restaurant/dto/edit-dish.dto.ts": {
         "version": "d4e9bdc0cfd5f7ce59d380e719c35f2e7d593bc48f52515db92fc5fd621d4265",
-        "signature": "ede3c3e2832a3a4f2715168380a90e30c49dadd529272b43b98f6824ed6f9f23",
+        "signature": "359269e1c12cf83653153e70f8b255f9554f3f4f2dffde223a5063bf5e025be4",
         "affectsGlobalScope": false
       },
       "../src/restaurant/dto/edit-restaurant.dto.ts": {
@@ -6051,12 +6051,12 @@
         "affectsGlobalScope": false
       },
       "../src/orders/dto/create-order.dto.ts": {
-        "version": "e3ef23f71ed6bb1d9749ad1c9c95d8104b538af7f4a3e843abd1543b9e08a5d3",
-        "signature": "8e485d75e15a81746940d672028ebc948a1867d5a25aaa9f7d25114d05589f7f",
+        "version": "3e31eed40424961e9e1050486e893cb2fcf14daa50c40cca5e94aeddcca8194e",
+        "signature": "07732e79b28fd12f4725c31a9cbd55c119935d91fdcdc290c1ff426d17b39562",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "2f9fa785e7744e2437ebc90e847c0a6b0225d74ba1aa8f4718645178127190f6",
+        "version": "0c020746651930fc02dc02bce450584253aa7c7d8cb51b6686d80e363dd5fd91",
         "signature": "d9a9a2fc027a67e1523768eef5f0e548f10a9637540a17f9f8e013fd9d638c77",
         "affectsGlobalScope": false
       },
@@ -11360,6 +11360,7 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/common/entities/core.entity.ts",
+        "../src/orders/entities/order.entity.ts",
         "../src/restaurant/entities/dish.entity.ts"
       ],
       "../src/orders/entities/order.entity.ts": [
@@ -11368,7 +11369,6 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/common/entities/core.entity.ts",
         "../src/orders/entities/order-item.entity.ts",
-        "../src/restaurant/entities/dish.entity.ts",
         "../src/restaurant/entities/restaurant.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],

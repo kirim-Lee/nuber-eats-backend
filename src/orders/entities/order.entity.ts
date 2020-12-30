@@ -2,12 +2,12 @@ import {
   ArgsType,
   Field,
   Float,
+  InputType,
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
 import { IsEnum, IsNumber } from 'class-validator';
 import { CoreEntity } from 'src/common/entities/core.entity';
-import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { User } from 'src/users/entities/user.entity';
 import {

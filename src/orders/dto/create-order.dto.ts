@@ -8,7 +8,7 @@ class CreateOrderItemInput {
   dishId: number;
 
   @Field(type => [OrderItemOption], { nullable: true })
-  choice?: OrderItemOption[];
+  options?: OrderItemOption[];
 }
 
 @ArgsType()
