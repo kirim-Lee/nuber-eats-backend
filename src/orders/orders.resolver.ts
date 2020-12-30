@@ -10,7 +10,7 @@ export class OrderResolver {
   constructor(private readonly orderService: OrderService) {}
 
   @Mutation(returns => CreateOrderOutput)
-  @Roles(['Any'])
+  @Roles(['CLIENT'])
   createOrder(
     @AuthUser() customer: User,
     @Args() createOrderInput: CreateOrderInput,

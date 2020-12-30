@@ -64,9 +64,9 @@ export class Order extends CoreEntity {
   @Column({ nullable: true })
   @Field(type => Float, { nullable: true })
   @IsNumber()
-  total: number;
+  total?: number;
 
-  @Column({ type: 'enum', enum: ORDER_STATUS })
+  @Column({ type: 'enum', enum: ORDER_STATUS, default: ORDER_STATUS.Pending })
   @Field(type => ORDER_STATUS)
   @IsEnum(ORDER_STATUS)
   status: ORDER_STATUS;

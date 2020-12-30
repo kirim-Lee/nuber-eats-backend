@@ -4,6 +4,7 @@ import { User } from 'src/users/entities/user.entity';
 import { Dish } from './entities/dish.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { CategoryRepository } from './repositories/category.repository';
+
 import {
   CategoryResolver,
   DishResolver,
