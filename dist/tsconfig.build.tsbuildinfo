@@ -6055,19 +6055,24 @@
         "signature": "07732e79b28fd12f4725c31a9cbd55c119935d91fdcdc290c1ff426d17b39562",
         "affectsGlobalScope": false
       },
+      "../src/orders/dto/get-order.dto.ts": {
+        "version": "e967e20b731eb4a5b101c08035a63474750583e6b9fd992b483a944def67f529",
+        "signature": "0bfc0019710ce78ebce89614f0721159114180f9e4f02cc1097b4a51d42c9b9c",
+        "affectsGlobalScope": false
+      },
       "../src/orders/dto/get-orders.dto.ts": {
         "version": "f7e74b00b5905370f9a3e1419afd83689ef16d89ab83bbb124e95b1f10bb9dc4",
         "signature": "dfe36e2799ca6048f3fe60c7b6e976a305bd768e74131a2a5d7e9013e9935703",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "e67039d78bc8cd74aee901e030aec912671faeaf1c2c188319f10981cbed183c",
-        "signature": "42d0b9940603511f9b674cd8f5efc0c9980e47ed5bd3b8069ed2ed6a59649fb3",
+        "version": "449a3d7bce53b69e383241c1bff71ed8ce149130486ee149db130d4f3813fa26",
+        "signature": "695d583b9729eb596bbdbf8325311aae827867df6d9aa2a7b2a1459869ba1390",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.resolver.ts": {
-        "version": "71f0003c9d38e22c786d526c895c64031e4adeda723a8234adb95ed3fffb7d4d",
-        "signature": "e68f06abc002e35f661c52d26506414bf94be1f9ee4e02ac10b19d4cfbfebbb2",
+        "version": "2e43449f97f97a5c35a5b525b2a636fe61d0d631202853fd1ae37189cb9f8b02",
+        "signature": "2268f70d9bbd5051f950198d8f8f70351ab6daca4cff4137ed681fa6f75b747a",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.module.ts": {
@@ -6088,11 +6093,6 @@
       "../src/common/common.module.ts": {
         "version": "cbc3a605c697a595bfa4e6cd27096a68fb848317ae05f8fc4dbec4c77841a011",
         "signature": "7214164cfa10573d2bf79da5174719e21aa58d3745730ba5464fd4491e9d5c6c",
-        "affectsGlobalScope": false
-      },
-      "../src/orders/dto/order.dto.ts": {
-        "version": "bff42076d13a8d31543690b7a0f612e42351b004be1fa4edd0ea8bed529ae716",
-        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -11366,13 +11366,15 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/orders/entities/order-item.entity.ts"
       ],
-      "../src/orders/dto/get-orders.dto.ts": [
+      "../src/orders/dto/get-order.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/common/entities/dtos/output.dto.ts",
         "../src/orders/entities/order.entity.ts"
       ],
-      "../src/orders/dto/order.dto.ts": [
-        "../node_modules/@nestjs/graphql/index.d.ts"
+      "../src/orders/dto/get-orders.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/orders/entities/order.entity.ts"
       ],
       "../src/orders/entities/order-item.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -11404,6 +11406,7 @@
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../src/auth/auth.user.decorator.ts",
         "../src/orders/dto/create-order.dto.ts",
+        "../src/orders/dto/get-order.dto.ts",
         "../src/orders/dto/get-orders.dto.ts",
         "../src/orders/entities/order.entity.ts",
         "../src/orders/orders.service.ts",
@@ -11414,6 +11417,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/orders/dto/create-order.dto.ts",
+        "../src/orders/dto/get-order.dto.ts",
         "../src/orders/dto/get-orders.dto.ts",
         "../src/orders/entities/order-item.entity.ts",
         "../src/orders/entities/order.entity.ts",
@@ -16535,6 +16539,11 @@
         "../src/common/entities/dtos/output.dto.ts",
         "../src/orders/entities/order-item.entity.ts"
       ],
+      "../src/orders/dto/get-order.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/orders/entities/order.entity.ts"
+      ],
       "../src/orders/dto/get-orders.dto.ts": [
         "../src/common/entities/dtos/output.dto.ts",
         "../src/orders/entities/order.entity.ts"
@@ -16551,6 +16560,7 @@
       ],
       "../src/orders/orders.resolver.ts": [
         "../src/orders/dto/create-order.dto.ts",
+        "../src/orders/dto/get-order.dto.ts",
         "../src/orders/dto/get-orders.dto.ts",
         "../src/orders/orders.service.ts",
         "../src/users/entities/user.entity.ts"
@@ -16558,6 +16568,7 @@
       "../src/orders/orders.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/orders/dto/create-order.dto.ts",
+        "../src/orders/dto/get-order.dto.ts",
         "../src/orders/dto/get-orders.dto.ts",
         "../src/orders/entities/order-item.entity.ts",
         "../src/orders/entities/order.entity.ts",
@@ -17972,8 +17983,8 @@
       "../src/mail/mail.service.ts",
       "../src/main.ts",
       "../src/orders/dto/create-order.dto.ts",
+      "../src/orders/dto/get-order.dto.ts",
       "../src/orders/dto/get-orders.dto.ts",
-      "../src/orders/dto/order.dto.ts",
       "../src/orders/entities/order-item.entity.ts",
       "../src/orders/entities/order.entity.ts",
       "../src/orders/orders.module.ts",

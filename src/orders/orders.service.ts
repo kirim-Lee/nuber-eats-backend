@@ -6,6 +6,7 @@ import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { ROLE, User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
+import { GetOrderInput, GetOrderOutput } from './dto/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
 import { OrderItem } from './entities/order-item.entity';
 import { Order } from './entities/order.entity';
@@ -86,11 +87,11 @@ export class OrderService {
 
   async getOrdersByClient(
     user: User,
-    { status }: GetOrdersInput,
+    getOrdersInput: GetOrdersInput,
   ): Promise<GetOrdersOutput> {
     try {
       const orders = await this.orders.find({
-        where: { customer: user, status },
+        where: { customer: user, ...getOrdersInput },
       });
       return { ok: true, orders };
     } catch (error) {
@@ -103,11 +104,11 @@ export class OrderService {
 
   async getOrdersByDriver(
     user: User,
-    { status }: GetOrdersInput,
+    getOrdersInput: GetOrdersInput,
   ): Promise<GetOrdersOutput> {
     try {
       const orders = await this.orders.find({
-        where: { driver: user, status },
+        where: { driver: user, ...getOrdersInput },
       });
       return { ok: true, orders };
     } catch (error) {
@@ -120,19 +121,23 @@ export class OrderService {
 
   async getOrdersByOwner(
     user: User,
-    { status }: GetOrdersInput,
+    getOrdersInput: GetOrdersInput,
   ): Promise<GetOrdersOutput> {
     try {
       const restaurants = await this.restaurants.find({
         where: { owner: user },
-        relations: ['orders'],
       });
 
       if (!restaurants) {
         throw Error('you have any restaurant');
       }
 
-      const orders = restaurants.map(restaurant => restaurant.orders).flat(1);
+      const orders = await this.orders.find({
+        where: restaurants.map(restaurant => ({
+          restaurant,
+          ...getOrdersInput,
+        })),
+      });
 
       return { ok: true, orders };
     } catch (error) {
@@ -159,6 +164,41 @@ export class OrderService {
           ok: false,
           error: "your role isn't exist",
         };
+    }
+  }
+
+  async getCheckWithRole(user: User, order: Order): Promise<boolean> {
+    switch (user.role) {
+      case ROLE.CLIENT:
+        return order.customerId === user.id;
+      case ROLE.DELIVERY:
+        return order.driverId === user.id;
+      case ROLE.OWNER:
+        const restaurant = await this.restaurants.findOne(order.restaurantId, {
+          loadRelationIds: true,
+        });
+        return restaurant.ownerId === user.id;
+      default:
+        return false;
+    }
+  }
+
+  async getOrder(user: User, { id }: GetOrderInput): Promise<GetOrderOutput> {
+    try {
+      const order = await this.orders.findOne(id, {
+        loadRelationIds: true,
+      });
+      if (!order) {
+        throw Error('order is not exist');
+      }
+
+      if (!(await this.getCheckWithRole(user, order))) {
+        throw Error("you aren't able to view this order");
+      }
+
+      return { ok: true, order };
+    } catch (error) {
+      return { ok: false, error: error.message };
     }
   }
 }
