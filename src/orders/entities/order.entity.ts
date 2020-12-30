@@ -22,9 +22,10 @@ import { OrderItem } from './order-item.entity';
 
 export enum ORDER_STATUS {
   Pending = 'Pending',
-  Cooking = 'Cooking',
-  PickedUp = 'PickUp',
-  Delivered = 'Delivered',
+  Cooking = 'Cooking', // 레스토랑 can change
+  Cooked = 'Cooked', // 레스토랑 can change
+  PickedUp = 'PickUp', // 딜리버리 can change
+  Delivered = 'Delivered', // 딜리버리 can change
 }
 
 registerEnumType(ORDER_STATUS, { name: 'OrderStatus' });

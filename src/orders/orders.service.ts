@@ -6,10 +6,11 @@ import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { ROLE, User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
+import { EditOrderInput, EditOrderOutput } from './dto/edit-order.dto';
 import { GetOrderInput, GetOrderOutput } from './dto/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
 import { OrderItem } from './entities/order-item.entity';
-import { Order } from './entities/order.entity';
+import { Order, ORDER_STATUS } from './entities/order.entity';
 
 @Injectable()
 export class OrderService {
@@ -197,6 +198,50 @@ export class OrderService {
       }
 
       return { ok: true, order };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }
+
+  checkAbleChangeStatus(role: ROLE, status: ORDER_STATUS): boolean {
+    switch (status) {
+      case ORDER_STATUS.Cooked:
+      case ORDER_STATUS.Cooking:
+        return role === ROLE.OWNER;
+      case ORDER_STATUS.Cooked:
+      case ORDER_STATUS.Cooking:
+        return role === ROLE.DELIVERY;
+      default:
+        return false;
+    }
+  }
+
+  async editOrder(
+    user: User,
+    { id, status }: EditOrderInput,
+  ): Promise<EditOrderOutput> {
+    try {
+      const order = await this.orders.findOne(id, {
+        loadRelationIds: true,
+      });
+
+      if (!order) {
+        throw Error('order is not exist');
+      }
+
+      if (!(await this.getCheckWithRole(user, order))) {
+        throw Error("you aren't able to change this order");
+      }
+
+      if (!this.checkAbleChangeStatus(user.role, status)) {
+        throw Error(
+          `your role is ${user.role}, and couln't change to ${status}`,
+        );
+      }
+
+      await this.orders.save({ id, status });
+
+      return { ok: true };
     } catch (error) {
       return { ok: false, error: error.message };
     }
