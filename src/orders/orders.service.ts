@@ -3,9 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 
-import { User } from 'src/users/entities/user.entity';
+import { ROLE, User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
+import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
 import { OrderItem } from './entities/order-item.entity';
 import { Order } from './entities/order.entity';
 
@@ -80,6 +81,84 @@ export class OrderService {
       return { ok: true };
     } catch (error) {
       return { ok: false, error: error.message };
+    }
+  }
+
+  async getOrdersByClient(
+    user: User,
+    { status }: GetOrdersInput,
+  ): Promise<GetOrdersOutput> {
+    try {
+      const orders = await this.orders.find({
+        where: { customer: user, status },
+      });
+      return { ok: true, orders };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async getOrdersByDriver(
+    user: User,
+    { status }: GetOrdersInput,
+  ): Promise<GetOrdersOutput> {
+    try {
+      const orders = await this.orders.find({
+        where: { driver: user, status },
+      });
+      return { ok: true, orders };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async getOrdersByOwner(
+    user: User,
+    { status }: GetOrdersInput,
+  ): Promise<GetOrdersOutput> {
+    try {
+      const restaurants = await this.restaurants.find({
+        where: { owner: user },
+        relations: ['orders'],
+      });
+
+      if (!restaurants) {
+        throw Error('you have any restaurant');
+      }
+
+      const orders = restaurants.map(restaurant => restaurant.orders).flat(1);
+
+      return { ok: true, orders };
+    } catch (error) {
+      return {
+        ok: false,
+        error: error.message,
+      };
+    }
+  }
+
+  async getOrders(
+    user: User,
+    getOrdersInput: GetOrdersInput,
+  ): Promise<GetOrdersOutput> {
+    switch (user.role) {
+      case ROLE.CLIENT:
+        return this.getOrdersByClient(user, getOrdersInput);
+      case ROLE.DELIVERY:
+        return this.getOrdersByDriver(user, getOrdersInput);
+      case ROLE.OWNER:
+        return this.getOrdersByOwner(user, getOrdersInput);
+      default:
+        return {
+          ok: false,
+          error: "your role isn't exist",
+        };
     }
   }
 }

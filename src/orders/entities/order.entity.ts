@@ -20,7 +20,7 @@ import {
 } from 'typeorm';
 import { OrderItem } from './order-item.entity';
 
-enum ORDER_STATUS {
+export enum ORDER_STATUS {
   Pending = 'Pending',
   Cooking = 'Cooking',
   PickedUp = 'PickUp',
