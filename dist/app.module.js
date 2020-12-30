@@ -76,7 +76,8 @@ AppModule = __decorate([
             }),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: true,
-                context: ({ req }) => ({ user: req['user'] }),
+                context: ({ req, connection }) => connection ? connection.context : { user: req['user'] },
+                installSubscriptionHandlers: true,
             }),
             users_module_1.UsersModule,
             restaurant_module_1.RestaurantModule,

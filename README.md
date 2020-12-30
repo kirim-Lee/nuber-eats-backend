@@ -24,3 +24,5 @@
 - name
 - slug
 - restaurants(foreign key)
+
+## Order Entity

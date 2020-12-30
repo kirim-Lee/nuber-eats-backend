@@ -66,7 +66,9 @@ const isProd = process.env.NODE_ENV === 'prod';
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
-      context: ({ req }) => ({ user: req['user'] }),
+      context: ({ req, connection }) =>
+        connection ? connection.context : { user: req['user'] },
+      installSubscriptionHandlers: true,
     }),
     UsersModule,
     RestaurantModule,
