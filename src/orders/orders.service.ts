@@ -1,7 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PubSub } from 'graphql-subscriptions';
-import { NEW_PENDING_ORDER, PUB_SUB } from 'src/common/common.constant';
+import {
+  NEW_COOKED_ORDER,
+  NEW_PENDING_ORDER,
+  PUB_SUB,
+} from 'src/common/common.constant';
 import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 
@@ -230,9 +234,7 @@ export class OrderService {
     { id, status }: EditOrderInput,
   ): Promise<EditOrderOutput> {
     try {
-      const order = await this.orders.findOne(id, {
-        loadRelationIds: true,
-      });
+      const order = await this.orders.findOne(id);
 
       if (!order) {
         throw Error('order is not exist');
@@ -249,6 +251,13 @@ export class OrderService {
       }
 
       await this.orders.save({ id, status });
+
+      // pubsub publish
+      if (status === ORDER_STATUS.Cooked) {
+        await this.pubSub.publish(NEW_COOKED_ORDER, {
+          cookedOrders: { ...order, status },
+        });
+      }
 
       return { ok: true };
     } catch (error) {

@@ -35,14 +35,20 @@ registerEnumType(ORDER_STATUS, { name: 'OrderStatus' });
 @Entity()
 export class Order extends CoreEntity {
   @Field(type => User)
-  @ManyToOne(type => User, user => user.orders, { onDelete: 'RESTRICT' })
+  @ManyToOne(type => User, user => user.orders, {
+    onDelete: 'RESTRICT',
+    eager: true,
+  })
   customer: User;
 
   @RelationId((order: Order) => order.customer)
   customerId: number;
 
   @Field(type => User, { nullable: true })
-  @ManyToOne(type => User, user => user.orders, { onDelete: 'RESTRICT' })
+  @ManyToOne(type => User, user => user.orders, {
+    onDelete: 'RESTRICT',
+    eager: true,
+  })
   driver?: User;
 
   @RelationId((order: Order) => order.driver)
@@ -51,6 +57,7 @@ export class Order extends CoreEntity {
   @Field(type => Restaurant)
   @ManyToOne(type => Restaurant, restaurant => restaurant.orders, {
     onDelete: 'RESTRICT',
+    eager: true,
   })
   restaurant: Restaurant;
 
