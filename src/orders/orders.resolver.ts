@@ -2,7 +2,7 @@ import { Inject } from '@nestjs/common';
 import { Query, Args, Mutation, Resolver, Subscription } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { AuthUser, Roles } from 'src/auth/auth.user.decorator';
-import { PUB_SUB } from 'src/common/common.constant';
+import { PUB_SUB, NEW_PENDING_ORDER } from 'src/common/common.constant';
 import { User } from 'src/users/entities/user.entity';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
 import { EditOrderInput, EditOrderOutput } from './dto/edit-order.dto';
@@ -54,15 +54,16 @@ export class OrderResolver {
     return this.orderService.editOrder(authUser, editOrderInput);
   }
 
-  @Subscription(returns => String)
-  @Roles(['Any'])
-  orderSubscription() {
-    return this.pubSub.asyncIterator('orderArrived');
-  }
-
-  @Mutation(returns => String)
-  orderTest(@AuthUser() authUser: User, @Args('str') str: string): boolean {
-    this.pubSub.publish('orderArrived', { str });
-    return true;
+  // 오더 생성시 섭스크립션
+  @Subscription(returns => Order, {
+    filter: (payload, variable, context) => {
+      console.log(variable, payload, context);
+      return payload.pendingOrders?.ownerId === context.user?.id;
+    },
+    resolve: ({ pendingOrders: { order } }) => order,
+  })
+  @Roles(['OWNER'])
+  pendingOrders() {
+    return this.pubSub.asyncIterator(NEW_PENDING_ORDER);
   }
 }

@@ -1,5 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { PubSub } from 'graphql-subscriptions';
+import { NEW_PENDING_ORDER, PUB_SUB } from 'src/common/common.constant';
 import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 
@@ -22,6 +24,7 @@ export class OrderService {
     private readonly dishs: Repository<Dish>,
     @InjectRepository(OrderItem)
     private readonly orderItems: Repository<OrderItem>,
+    @Inject(PUB_SUB) private readonly pubSub: PubSub,
   ) {}
 
   async createOrder(
@@ -29,7 +32,9 @@ export class OrderService {
     { restaurantId, orderItems }: CreateOrderInput,
   ): Promise<CreateOrderOutput> {
     try {
-      const restaurant = await this.restaurants.findOne(restaurantId);
+      const restaurant = await this.restaurants.findOne(restaurantId, {
+        loadRelationIds: true,
+      });
 
       if (!restaurant) {
         throw Error('restaurant is not exist');
@@ -76,9 +81,13 @@ export class OrderService {
       );
 
       const item = await this.orderItems.save(this.orderItems.create(items));
-      await this.orders.save(
+      const order = await this.orders.save(
         this.orders.create({ restaurant, customer, total, items: item }),
       );
+
+      await this.pubSub.publish(NEW_PENDING_ORDER, {
+        pendingOrders: { order, ownerId: restaurant.ownerId },
+      });
 
       return { ok: true };
     } catch (error) {
