@@ -25,6 +25,7 @@ const dish_entity_1 = require("./restaurant/entities/dish.entity");
 const orders_module_1 = require("./orders/orders.module");
 const order_entity_1 = require("./orders/entities/order.entity");
 const order_item_entity_1 = require("./orders/entities/order-item.entity");
+const common_module_1 = require("./common/common.module");
 const isProd = process.env.NODE_ENV === 'prod';
 let AppModule = class AppModule {
 };
@@ -86,6 +87,7 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             mail_module_1.MailModule,
             orders_module_1.OrdersModule,
+            common_module_1.CommonModule,
         ],
         controllers: [],
         providers: [],
