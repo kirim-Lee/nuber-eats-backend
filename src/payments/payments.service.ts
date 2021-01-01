@@ -7,7 +7,10 @@ import {
   CreatePaymentInput,
   CreatePaymentOutput,
 } from './dto/create-payment.dto';
+import { GetPaymentsInput, GetPaymentsOutput } from './dto/get-payments.dto';
 import { Payment } from './entities/payment.entity';
+
+const limit = 10;
 
 @Injectable()
 export class PaymentService {
@@ -44,6 +47,27 @@ export class PaymentService {
       );
 
       return { ok: true };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }
+
+  async getPayment(
+    user: User,
+    { page }: GetPaymentsInput,
+  ): Promise<GetPaymentsOutput> {
+    try {
+      const [results, totalResults] = await this.payments.findAndCount({
+        where: { user },
+        skip: (page - 1) * limit,
+        take: limit,
+      });
+
+      return {
+        ok: true,
+        results,
+        totalPages: Math.ceil(totalResults / limit),
+      };
     } catch (error) {
       return { ok: false, error: error.message };
     }
