@@ -47,5 +47,16 @@ describe('PaymentService', () => {
         },
       ]);
     });
+
+    it('should return error except', async () => {
+      jest.spyOn(console, 'log');
+      restaurants.find.mockImplementation(() => {
+        throw Error('unhandled Error');
+      });
+      await service.checkPromotedRestaurant();
+
+      expect(console.log).toHaveBeenCalledTimes(1);
+      expect(console.log).toHaveBeenCalledWith(Error('unhandled Error'));
+    });
   });
 });
