@@ -121,6 +121,7 @@ export class UserService {
   ): Promise<EditProfileOutput> {
     try {
       const user = await this.findById(userId);
+
       if (!user) {
         throw Error('user info not exist');
       }

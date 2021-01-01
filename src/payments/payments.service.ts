@@ -91,7 +91,7 @@ export class PaymentService {
         isPromoted: true,
         promotedUntil: LessThan(new Date()),
       });
-      console.log(restaurants);
+
       await this.restaurants.save(
         restaurants.map(restaurant => ({
           ...restaurant,

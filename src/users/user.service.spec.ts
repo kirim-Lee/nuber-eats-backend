@@ -219,7 +219,8 @@ describe('UserService', () => {
     };
 
     it('should change email', async () => {
-      userRepository.findOne.mockResolvedValue(oldUser);
+      jest.spyOn(service, 'findById').mockResolvedValue(oldUser as any);
+      userRepository.findOne.mockResolvedValue(null);
       verificationRepository.create.mockReturnValue(newVerification);
       verificationRepository.save.mockReturnValue(newVerification);
 
@@ -228,9 +229,12 @@ describe('UserService', () => {
         editProfileArgs,
       );
 
+      expect(service.findById).toHaveBeenCalledTimes(1);
+      expect(service.findById).toHaveBeenCalledWith(editProfileArgs.id);
+
       expect(userRepository.findOne).toHaveBeenCalledTimes(1);
       expect(userRepository.findOne).toHaveBeenCalledWith({
-        id: editProfileArgs.id,
+        email: newUser.email,
       });
 
       expect(verificationRepository.delete).toHaveBeenCalledTimes(1);
