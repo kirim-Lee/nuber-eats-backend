@@ -6,14 +6,15 @@ import {
   PUB_SUB,
   NEW_PENDING_ORDER,
   NEW_COOKED_ORDER,
-  UPDATE_ORDER_STATUS,
+  UPDATE_ORDER,
 } from 'src/common/common.constant';
 import { User } from 'src/users/entities/user.entity';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
 import { EditOrderInput, EditOrderOutput } from './dto/edit-order.dto';
 import { GetOrderInput, GetOrderOutput } from './dto/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
-import { UpdateOrderStatusInput } from './dto/update-order-status.dto';
+import { TakeOrderInput, TakeOrderOutput } from './dto/take-order.dto';
+import { UpdateOrderInput } from './dto/update-order.dto';
 import { Order } from './entities/order.entity';
 import { OrderService } from './orders.service';
 
@@ -80,7 +81,7 @@ export class OrderResolver {
 
   @Subscription(returns => Order, {
     filter: (payload, variable, context) => {
-      const order: Order = payload.updateOrderStatus;
+      const order: Order = payload.updateOrder;
       return (
         order.id === variable.id &&
         (order?.restaurant?.ownerId === context.user?.id ||
@@ -90,7 +91,16 @@ export class OrderResolver {
     },
   })
   @Roles(['Any'])
-  updateOrderStatus(@Args() updateOrderStatusInput: UpdateOrderStatusInput) {
-    return this.pubSub.asyncIterator(UPDATE_ORDER_STATUS);
+  updateOrder(@Args() updateOrderInput: UpdateOrderInput) {
+    return this.pubSub.asyncIterator(UPDATE_ORDER);
+  }
+
+  @Mutation(returns => TakeOrderOutput)
+  @Roles(['DELIVERY'])
+  takeOrder(
+    @AuthUser() authUser: User,
+    @Args() takeOrderInput: TakeOrderInput,
+  ): Promise<TakeOrderOutput> {
+    return this.orderService.takeOrder(authUser, takeOrderInput);
   }
 }

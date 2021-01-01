@@ -5,7 +5,7 @@ import {
   NEW_COOKED_ORDER,
   NEW_PENDING_ORDER,
   PUB_SUB,
-  UPDATE_ORDER_STATUS,
+  UPDATE_ORDER,
 } from 'src/common/common.constant';
 import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
@@ -16,6 +16,7 @@ import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
 import { EditOrderInput, EditOrderOutput } from './dto/edit-order.dto';
 import { GetOrderInput, GetOrderOutput } from './dto/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
+import { TakeOrderInput, TakeOrderOutput } from './dto/take-order.dto';
 import { OrderItem } from './entities/order-item.entity';
 import { Order, ORDER_STATUS } from './entities/order.entity';
 
@@ -222,8 +223,8 @@ export class OrderService {
       case ORDER_STATUS.Cooked:
       case ORDER_STATUS.Cooking:
         return role === ROLE.OWNER;
-      case ORDER_STATUS.Cooked:
-      case ORDER_STATUS.Cooking:
+      case ORDER_STATUS.PickedUp:
+      case ORDER_STATUS.Delivered:
         return role === ROLE.DELIVERY;
       default:
         return false;
@@ -260,10 +261,47 @@ export class OrderService {
         });
       }
 
-      await this.pubSub.publish(UPDATE_ORDER_STATUS, {
-        updateOrderStatus: { ...order, status },
+      await this.pubSub.publish(UPDATE_ORDER, {
+        updateOrder: { ...order, status },
       });
 
+      return { ok: true };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }
+
+  async takeOrder(
+    driver: User,
+    { id }: TakeOrderInput,
+  ): Promise<TakeOrderOutput> {
+    try {
+      const order = await this.orders.findOne(id);
+      if (!order) {
+        throw Error('order is not founded');
+      }
+
+      if (
+        order.status === ORDER_STATUS.Delivered ||
+        order.status === ORDER_STATUS.PickedUp
+      ) {
+        throw Error(
+          `this order couln't take because order status is ${order.status}`,
+        );
+      }
+
+      if (order.driverId === driver.id) {
+        throw Error('you already occupied this order');
+      }
+
+      if (order.driverId) {
+        throw Error('this order has occupied');
+      }
+
+      await this.orders.save({ id, driver });
+      await this.pubSub.publish(UPDATE_ORDER, {
+        updateOrder: { ...order, driver },
+      });
       return { ok: true };
     } catch (error) {
       return { ok: false, error: error.message };
