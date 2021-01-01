@@ -6,6 +6,7 @@ import * as bcrypt from 'bcrypt';
 import { IsBoolean, IsEmail, IsEnum, IsString } from 'class-validator';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { Order } from 'src/orders/entities/order.entity';
+import { Payment } from 'src/payments/entities/payment.entity';
 
 export enum ROLE {
   CLIENT = 'client',
@@ -54,6 +55,10 @@ export class User extends CoreEntity {
   @Field(type => [Order])
   @OneToMany(type => Order, order => order.driver)
   rides: Order[];
+
+  @Field(type => [Payment])
+  @OneToMany(type => Payment, payment => payment.user)
+  payments: Payment[];
 
   @BeforeInsert()
   @BeforeUpdate()

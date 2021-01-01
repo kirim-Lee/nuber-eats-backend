@@ -2,6 +2,7 @@ import { ArgsType, Field, ObjectType } from '@nestjs/graphql';
 import { IsString, Length } from 'class-validator';
 import { CoreEntity } from 'src/common/entities/core.entity';
 import { Order } from 'src/orders/entities/order.entity';
+import { Payment } from 'src/payments/entities/payment.entity';
 import { User } from 'src/users/entities/user.entity';
 import {
   Column,
@@ -60,4 +61,8 @@ export class Restaurant extends CoreEntity {
   @Field(type => [Order], { nullable: true })
   @OneToMany(type => Order, order => order.restaurant)
   orders?: Order[];
+
+  @Field(type => [Payment])
+  @OneToMany(type => Payment, payment => payment.user)
+  payments: Payment[];
 }

@@ -17,6 +17,8 @@ import { OrdersModule } from './orders/orders.module';
 import { Order } from './orders/entities/order.entity';
 import { OrderItem } from './orders/entities/order-item.entity';
 import { CommonModule } from './common/common.module';
+import { PaymentsModule } from './payments/payments.module';
+import { Payment } from './payments/entities/payment.entity';
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -57,6 +59,7 @@ const isProd = process.env.NODE_ENV === 'prod';
         Dish,
         Order,
         OrderItem,
+        Payment,
       ],
     }),
     GraphQLModule.forRoot({
@@ -78,6 +81,7 @@ const isProd = process.env.NODE_ENV === 'prod';
     MailModule,
     OrdersModule,
     CommonModule,
+    PaymentsModule,
   ],
   controllers: [],
   providers: [],

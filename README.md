@@ -26,3 +26,7 @@
 - restaurants(foreign key)
 
 ## Order Entity
+
+## Payments (CRON)
+
+- with paddle(<http://paddle.com>)
