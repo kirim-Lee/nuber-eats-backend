@@ -5756,7 +5756,7 @@
         "affectsGlobalScope": false
       },
       "../src/payments/entities/payment.entity.ts": {
-        "version": "d8f6e0588b649317fac91e653a8ef4061e5ab765b402093fed18df092e304aee",
+        "version": "017a12e356aeae119a56bdd1bbb6853646b43d4a62305f5c4cd0f6eabab2f249",
         "signature": "c4a88a78ba2afb3e63f61f7a436d23cdd030cf8a3e882a90e592c273ae3b0efe",
         "affectsGlobalScope": false
       },
@@ -5766,8 +5766,8 @@
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/restaurant.entity.ts": {
-        "version": "8064bfc47abd02b7d19d400bcf555122127369b812f8294fbdf63832a5bc9195",
-        "signature": "a3eacb81a479b664ee5127d344cce63a2dca256e61ab42c25aeca49574deab3a",
+        "version": "5c4d01df424289c4f10b52387331c0ee96fc665b28f8f32871ec3698ca0a7bf4",
+        "signature": "569873c5ae01a5de5227d6ca010a75df32780e47a96a99e9e7d9ca320cae669e",
         "affectsGlobalScope": false
       },
       "../src/users/entities/user.entity.ts": {
@@ -5817,7 +5817,7 @@
       },
       "../src/users/dtos/edit-profile.dto.ts": {
         "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "17f44f9cc14674a0db81fecc668e0cac241cc710e468082b16b049b93bbbda16",
+        "signature": "01a6f5e631f99a91ab8d8cb65bb0de2ab7afb811781de92ef0fc0b4c82f58162",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/user-profile.dto.ts": {
@@ -16785,7 +16785,6 @@
       "../src/restaurant/entities/restaurant.entity.ts": [
         "../src/common/entities/core.entity.ts",
         "../src/orders/entities/order.entity.ts",
-        "../src/payments/entities/payment.entity.ts",
         "../src/restaurant/entities/category.entity.ts",
         "../src/restaurant/entities/dish.entity.ts",
         "../src/users/entities/user.entity.ts"
