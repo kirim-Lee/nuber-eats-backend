@@ -1,4 +1,4 @@
-import { ArgsType, Field, Int, ObjectType } from '@nestjs/graphql';
+import { ArgsType, Field, ObjectType } from '@nestjs/graphql';
 import { CoreEntity } from 'src/common/entities/core.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { User } from 'src/users/entities/user.entity';
@@ -8,9 +8,9 @@ import { Column, Entity, ManyToOne, RelationId } from 'typeorm';
 @ObjectType()
 @Entity()
 export class Payment extends CoreEntity {
-  @Field(type => Int)
+  @Field(type => String)
   @Column()
-  transactionId: number;
+  transactionId: string;
 
   @Field(type => User, { nullable: true })
   @ManyToOne(type => User, user => user.payments)

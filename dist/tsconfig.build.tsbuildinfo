@@ -5756,8 +5756,8 @@
         "affectsGlobalScope": false
       },
       "../src/payments/entities/payment.entity.ts": {
-        "version": "017a12e356aeae119a56bdd1bbb6853646b43d4a62305f5c4cd0f6eabab2f249",
-        "signature": "c4a88a78ba2afb3e63f61f7a436d23cdd030cf8a3e882a90e592c273ae3b0efe",
+        "version": "5d4bd39d56d814beceeff3952dd430ab59bd9717ff8ec6823747c9851f41843e",
+        "signature": "a6b54454c39300a9358392cdf38f015a0be9e0cc1747d9b9ef03d0f0364fcbf1",
         "affectsGlobalScope": false
       },
       "../src/restaurant/entities/category.entity.ts": {
@@ -5817,7 +5817,7 @@
       },
       "../src/users/dtos/edit-profile.dto.ts": {
         "version": "383ba3b11dc6296fd2f2efc15dbbe87ea08c670983f068025338b052b3845421",
-        "signature": "01a6f5e631f99a91ab8d8cb65bb0de2ab7afb811781de92ef0fc0b4c82f58162",
+        "signature": "93e0cccd5f9010a553abdc2f94986b02f9c330976d0eb4e2eb791a24f71725e6",
         "affectsGlobalScope": false
       },
       "../src/users/dtos/user-profile.dto.ts": {
@@ -6017,7 +6017,7 @@
       },
       "../src/restaurant/dto/edit-dish.dto.ts": {
         "version": "d4e9bdc0cfd5f7ce59d380e719c35f2e7d593bc48f52515db92fc5fd621d4265",
-        "signature": "88847c04e8cbd68a92a318f1c90b45dd9e324619645c6991035b60564a521d2e",
+        "signature": "269e3a3b93c8d5df10f652213c5c0add82eb47210165594652e71e2b175b49c9",
         "affectsGlobalScope": false
       },
       "../src/restaurant/dto/edit-restaurant.dto.ts": {
@@ -6125,8 +6125,23 @@
         "signature": "43449e87f23dae0d9f076eaa078da7ede19b302890d26195c9105aa587aeb9cc",
         "affectsGlobalScope": false
       },
+      "../src/payments/dto/create-payment.dto.ts": {
+        "version": "a82e60cdcbeb65d2baca618754a8f07368f69fa932f13f5d3fa570a5a1ff2622",
+        "signature": "39f2a51d971fe5dced1bcb27d9b0abd52f1f1d259b16c644972674dec3db6d76",
+        "affectsGlobalScope": false
+      },
+      "../src/payments/payments.service.ts": {
+        "version": "5f2c1222f9e4ec13e9fb7b41fda1fd85fd5fb538ac8359dc3e3d4fee838c4db8",
+        "signature": "bd41cb08df5ed835222560ceca12180a9295d246fa088408f8d9abfb94e54ddb",
+        "affectsGlobalScope": false
+      },
+      "../src/payments/payments.resolver.ts": {
+        "version": "27db175bfe07c58a7613830dd49d3841e6322a3d3c230bc69f43f412bce1a1d1",
+        "signature": "07a7de6020f04d60f1400db2a08692e91a55c3505101a853990baa32fee606bd",
+        "affectsGlobalScope": false
+      },
       "../src/payments/payments.module.ts": {
-        "version": "45e5f247dee718f953328aef86437c81a91a2222cf44dfc13ed6b56ec4754b72",
+        "version": "d2bf0916d3f12de59ccfa9988d9086b285a96adeb5e6b7ae28fa83c1ab1d24fa",
         "signature": "b0a844f50b549a626630dc8d318bfbe6e4eb22db570ff19a952c56bb782c6370",
         "affectsGlobalScope": false
       },
@@ -11524,6 +11539,11 @@
         "../src/restaurant/entities/restaurant.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/payments/dto/create-payment.dto.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/payments/entities/payment.entity.ts"
+      ],
       "../src/payments/entities/payment.entity.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
@@ -11532,7 +11552,29 @@
         "../src/users/entities/user.entity.ts"
       ],
       "../src/payments/payments.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/payments/entities/payment.entity.ts",
+        "../src/payments/payments.resolver.ts",
+        "../src/payments/payments.service.ts",
+        "../src/restaurant/entities/restaurant.entity.ts"
+      ],
+      "../src/payments/payments.resolver.ts": [
+        "../node_modules/@nestjs/graphql/index.d.ts",
+        "../src/auth/auth.user.decorator.ts",
+        "../src/payments/dto/create-payment.dto.ts",
+        "../src/payments/entities/payment.entity.ts",
+        "../src/payments/payments.service.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
+      "../src/payments/payments.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/payments/dto/create-payment.dto.ts",
+        "../src/payments/entities/payment.entity.ts",
+        "../src/restaurant/entities/restaurant.entity.ts",
+        "../src/users/entities/user.entity.ts"
       ],
       "../src/restaurant/dto/all-categories.dto.ts": [
         "../node_modules/@nestjs/graphql/index.d.ts",
@@ -16720,8 +16762,25 @@
         "../src/restaurant/entities/restaurant.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],
+      "../src/payments/dto/create-payment.dto.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/common/entities/dtos/output.dto.ts",
+        "../src/payments/entities/payment.entity.ts"
+      ],
       "../src/payments/entities/payment.entity.ts": [
         "../src/common/entities/core.entity.ts",
+        "../src/restaurant/entities/restaurant.entity.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
+      "../src/payments/payments.resolver.ts": [
+        "../src/payments/dto/create-payment.dto.ts",
+        "../src/payments/payments.service.ts",
+        "../src/users/entities/user.entity.ts"
+      ],
+      "../src/payments/payments.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/payments/dto/create-payment.dto.ts",
+        "../src/payments/entities/payment.entity.ts",
         "../src/restaurant/entities/restaurant.entity.ts",
         "../src/users/entities/user.entity.ts"
       ],
@@ -18148,8 +18207,11 @@
       "../src/orders/orders.module.ts",
       "../src/orders/orders.resolver.ts",
       "../src/orders/orders.service.ts",
+      "../src/payments/dto/create-payment.dto.ts",
       "../src/payments/entities/payment.entity.ts",
       "../src/payments/payments.module.ts",
+      "../src/payments/payments.resolver.ts",
+      "../src/payments/payments.service.ts",
       "../src/restaurant/dto/all-categories.dto.ts",
       "../src/restaurant/dto/category.dto.ts",
       "../src/restaurant/dto/create-dish.dto.ts",
