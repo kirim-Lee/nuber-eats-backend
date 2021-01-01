@@ -28,6 +28,7 @@ const order_item_entity_1 = require("./orders/entities/order-item.entity");
 const common_module_1 = require("./common/common.module");
 const payments_module_1 = require("./payments/payments.module");
 const payment_entity_1 = require("./payments/entities/payment.entity");
+const schedule_1 = require("@nestjs/schedule");
 const isProd = process.env.NODE_ENV === 'prod';
 let AppModule = class AppModule {
 };
@@ -92,6 +93,7 @@ AppModule = __decorate([
             orders_module_1.OrdersModule,
             common_module_1.CommonModule,
             payments_module_1.PaymentsModule,
+            schedule_1.ScheduleModule.forRoot(),
         ],
         controllers: [],
         providers: [],

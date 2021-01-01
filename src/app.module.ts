@@ -19,6 +19,7 @@ import { OrderItem } from './orders/entities/order-item.entity';
 import { CommonModule } from './common/common.module';
 import { PaymentsModule } from './payments/payments.module';
 import { Payment } from './payments/entities/payment.entity';
+import { ScheduleModule } from '@nestjs/schedule';
 
 const isProd = process.env.NODE_ENV === 'prod';
 
@@ -82,6 +83,7 @@ const isProd = process.env.NODE_ENV === 'prod';
     OrdersModule,
     CommonModule,
     PaymentsModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [],
   providers: [],

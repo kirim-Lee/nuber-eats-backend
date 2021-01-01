@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Cron, Interval } from '@nestjs/schedule';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { User } from 'src/users/entities/user.entity';
@@ -38,6 +39,16 @@ export class PaymentService {
         throw Error('you are not the restaurant owner');
       }
 
+      // get promote date
+      const date = new Date();
+      date.setDate(date.getDate() + 7);
+
+      await this.restaurants.save({
+        ...restaurant,
+        isPromoted: true,
+        promotedUntil: date,
+      });
+
       await this.payments.save(
         this.payments.create({
           transactionId: createPaymentInput.transactionId,
@@ -71,5 +82,15 @@ export class PaymentService {
     } catch (error) {
       return { ok: false, error: error.message };
     }
+  }
+
+  @Cron('30 * * * * *')
+  async checkForPayments() {
+    console.log('Checking for payments...(cron)');
+  }
+
+  @Interval(30000)
+  async checkForInterval() {
+    console.log('Checking for payments...(interval)');
   }
 }
