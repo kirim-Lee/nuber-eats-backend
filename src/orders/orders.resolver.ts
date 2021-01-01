@@ -6,12 +6,14 @@ import {
   PUB_SUB,
   NEW_PENDING_ORDER,
   NEW_COOKED_ORDER,
+  UPDATE_ORDER_STATUS,
 } from 'src/common/common.constant';
 import { User } from 'src/users/entities/user.entity';
 import { CreateOrderInput, CreateOrderOutput } from './dto/create-order.dto';
 import { EditOrderInput, EditOrderOutput } from './dto/edit-order.dto';
 import { GetOrderInput, GetOrderOutput } from './dto/get-order.dto';
 import { GetOrdersInput, GetOrdersOutput } from './dto/get-orders.dto';
+import { UpdateOrderStatusInput } from './dto/update-order-status.dto';
 import { Order } from './entities/order.entity';
 import { OrderService } from './orders.service';
 
@@ -60,8 +62,7 @@ export class OrderResolver {
 
   // 오더 생성시 섭스크립션
   @Subscription(returns => Order, {
-    filter: (payload, variable, context) => {
-      console.log(variable, payload, context);
+    filter: (payload, _, context) => {
       return payload.pendingOrders?.ownerId === context.user?.id;
     },
     resolve: ({ pendingOrders: { order } }) => order,
@@ -75,5 +76,21 @@ export class OrderResolver {
   @Roles(['DELIVERY'])
   cookedOrders() {
     return this.pubSub.asyncIterator(NEW_COOKED_ORDER);
+  }
+
+  @Subscription(returns => Order, {
+    filter: (payload, variable, context) => {
+      const order: Order = payload.updateOrderStatus;
+      return (
+        order.id === variable.id &&
+        (order?.restaurant?.ownerId === context.user?.id ||
+          order?.customerId === context.user?.id ||
+          order?.driverId === context.user?.id)
+      );
+    },
+  })
+  @Roles(['Any'])
+  updateOrderStatus(@Args() updateOrderStatusInput: UpdateOrderStatusInput) {
+    return this.pubSub.asyncIterator(UPDATE_ORDER_STATUS);
   }
 }

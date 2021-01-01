@@ -5,6 +5,7 @@ import {
   NEW_COOKED_ORDER,
   NEW_PENDING_ORDER,
   PUB_SUB,
+  UPDATE_ORDER_STATUS,
 } from 'src/common/common.constant';
 import { Dish } from 'src/restaurant/entities/dish.entity';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
@@ -258,6 +259,10 @@ export class OrderService {
           cookedOrders: { ...order, status },
         });
       }
+
+      await this.pubSub.publish(UPDATE_ORDER_STATUS, {
+        updateOrderStatus: { ...order, status },
+      });
 
       return { ok: true };
     } catch (error) {
