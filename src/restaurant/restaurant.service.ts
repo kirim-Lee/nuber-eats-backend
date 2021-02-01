@@ -30,7 +30,7 @@ import { Dish } from './entities/dish.entity';
 import { Restaurant } from './entities/restaurant.entity';
 import { CategoryRepository } from './repositories/category.repository';
 
-const limit = 25;
+const limit = 1;
 
 @Injectable()
 export class RestaurantService {
@@ -192,6 +192,7 @@ export class RestaurantService {
         take: limit,
         skip: (page - 1) * limit,
         order: { isPromoted: 'DESC' },
+        relations: ['category'],
       });
 
       const totalRestaurants = await this.getRestaurantCount(category);
@@ -200,6 +201,7 @@ export class RestaurantService {
         ok: true,
         category,
         restaurants,
+        totalResults: totalRestaurants,
         totalPages: Math.ceil(totalRestaurants / limit),
       };
     } catch (error) {
@@ -213,6 +215,7 @@ export class RestaurantService {
         skip: (page - 1) * limit,
         take: limit,
         order: { isPromoted: 'DESC' },
+        relations: ['category'],
       });
 
       return {
@@ -263,7 +266,7 @@ export class RestaurantService {
         where: { name: Raw(name => `${name} ILIKE '%${query}%'`) },
         take: limit,
         skip: (page - 1) * limit,
-        relations: ['menu'],
+        relations: ['menu', 'category'],
       });
 
       return {
