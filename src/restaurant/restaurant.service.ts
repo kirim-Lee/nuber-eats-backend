@@ -102,6 +102,17 @@ export class RestaurantService {
     }
   }
 
+  async myRestaurants(owner: User): Promise<RestaurantsOutput> {
+    try {
+      const [restaurnats, totalResults] = await this.restaurants.findAndCount({
+        owner,
+      });
+      return { ok: true, results: restaurnats, totalResults };
+    } catch (error) {
+      return { ok: false, error: error.message };
+    }
+  }
+
   async editRestaurant(
     owner: User,
     editRestaurantInput: EditRestaurantInput,
